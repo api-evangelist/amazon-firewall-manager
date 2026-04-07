@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Security
+  - AWS
+  - Compliance
   - Firewall
   - Network Security
-  - Compliance
-  - AWS
+  - Security
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/firewall-manager/
     baseURL: https://fms.amazonaws.com
     tags:
-      - Security
       - Firewall Management
       - Network Security
+      - Security
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/fms/2018-01-01/APIReference/Welcome.html
