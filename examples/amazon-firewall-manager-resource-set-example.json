@@ -1,0 +1,11 @@
+{
+  "Id": "rs-abc12345",
+  "Name": "Production-ALBs",
+  "Description": "All production Application Load Balancers",
+  "UpdateToken": "1:updatetoken123",
+  "ResourceTypeList": [
+    "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  ],
+  "LastUpdateTime": "2026-04-01T10:00:00Z",
+  "ResourceSetStatus": "ACTIVE"
+}

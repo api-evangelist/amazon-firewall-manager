@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/json-structure/amazon-firewall-manager-tag-structure.json",
+  "name": "Tag",
+  "description": "A key-value metadata label applied to a Firewall Manager resource.",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Key",
+      "type": "string",
+      "description": "Tag key.",
+      "required": true
+    },
+    {
+      "name": "Value",
+      "type": "string",
+      "description": "Tag value.",
+      "required": true
+    }
+  ]
+}

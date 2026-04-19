@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/json-structure/amazon-firewall-manager-compliance-violator-structure.json",
+  "name": "ComplianceViolator",
+  "description": "A resource not in compliance with a Firewall Manager policy.",
+  "type": "object",
+  "fields": [
+    {
+      "name": "ResourceId",
+      "type": "string",
+      "description": "ID of the non-compliant resource."
+    },
+    {
+      "name": "ViolationReason",
+      "type": "string",
+      "description": "Reason the resource is not compliant."
+    },
+    {
+      "name": "ResourceType",
+      "type": "string",
+      "description": "AWS resource type."
+    }
+  ]
+}

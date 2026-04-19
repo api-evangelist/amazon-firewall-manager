@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/json-structure/amazon-firewall-manager-resource-set-structure.json",
+  "name": "ResourceSet",
+  "description": "A named collection of AWS resources to include in a Firewall Manager policy.",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Id",
+      "type": "string",
+      "description": "Unique resource set identifier."
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "description": "Name of the resource set.",
+      "required": true
+    },
+    {
+      "name": "Description",
+      "type": "string",
+      "description": "Optional description."
+    },
+    {
+      "name": "ResourceTypeList",
+      "type": "array",
+      "description": "List of AWS resource types in the set.",
+      "required": true
+    },
+    {
+      "name": "LastUpdateTime",
+      "type": "datetime",
+      "description": "Time the resource set was last updated."
+    },
+    {
+      "name": "ResourceSetStatus",
+      "type": "string",
+      "description": "Status of the resource set.",
+      "enum": [
+        "ACTIVE",
+        "OUT_OF_ADMIN_SCOPE"
+      ]
+    }
+  ]
+}

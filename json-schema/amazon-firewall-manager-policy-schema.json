@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/json-schema/amazon-firewall-manager-policy-schema.json",
+  "title": "Policy",
+  "description": "An AWS Firewall Manager policy defining security rules and resource scope.",
+  "type": "object",
+  "properties": {
+    "PolicyId": {
+      "type": "string",
+      "description": "Unique policy identifier."
+    },
+    "PolicyName": {
+      "type": "string",
+      "description": "Friendly name of the policy."
+    },
+    "PolicyUpdateToken": {
+      "type": "string",
+      "description": "Token for optimistic locking."
+    },
+    "SecurityServicePolicyData": {
+      "type": "object",
+      "description": "Details about the security service type and configuration."
+    },
+    "ResourceType": {
+      "type": "string",
+      "description": "AWS resource type in scope."
+    },
+    "ExcludeResourceTags": {
+      "type": "boolean",
+      "description": "If True, resources with specified tags are excluded."
+    },
+    "RemediationEnabled": {
+      "type": "boolean",
+      "description": "If True, Firewall Manager auto-remediates non-compliant resources."
+    },
+    "PolicyArn": {
+      "type": "string",
+      "description": "ARN of the policy."
+    }
+  },
+  "required": [
+    "PolicyName",
+    "SecurityServicePolicyData",
+    "ResourceType",
+    "ExcludeResourceTags",
+    "RemediationEnabled"
+  ]
+}

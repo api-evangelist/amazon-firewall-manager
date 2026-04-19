@@ -1,0 +1,8 @@
+{
+  "ResourceId": "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/abc123",
+  "ViolationReason": "RESOURCE_MISSING_WEB_ACL",
+  "ResourceType": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+  "Metadata": {
+    "WEB_ACL_ID": ""
+  }
+}

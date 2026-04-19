@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/json-structure/amazon-firewall-manager-security-service-policy-data-structure.json",
+  "name": "SecurityServicePolicyData",
+  "description": "Specifies the type of security service and its configuration for a Firewall Manager policy.",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Type",
+      "type": "string",
+      "description": "The service type.",
+      "required": true,
+      "enum": [
+        "WAF",
+        "WAFV2",
+        "SHIELD_ADVANCED",
+        "SECURITY_GROUPS_COMMON",
+        "SECURITY_GROUPS_CONTENT_AUDIT",
+        "SECURITY_GROUPS_USAGE_AUDIT",
+        "NETWORK_FIREWALL",
+        "DNS_FIREWALL",
+        "THIRD_PARTY_FIREWALL",
+        "IMPORT_NETWORK_FIREWALL"
+      ]
+    },
+    {
+      "name": "ManagedServiceData",
+      "type": "string",
+      "description": "Service-specific configuration details as JSON."
+    }
+  ]
+}

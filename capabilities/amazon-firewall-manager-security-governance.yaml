@@ -1,0 +1,145 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amazon Firewall Manager Security Governance
+  description: Centrally manage WAF, Shield, Network Firewall, and security group policies across AWS accounts.
+  tags:
+  - Security
+  - Firewall
+  - Compliance
+  - Multi-Account
+  - AWS Organizations
+binds:
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+    AWS_REGION: AWS_REGION
+capability:
+  consumes:
+  - namespace: fms
+    ref: capabilities/shared/firewall-manager.yaml
+  exposes:
+  - type: rest
+    port: 8080
+  - type: mcp
+    port: 9090
+  tools:
+  - name: listPolicies
+    description: List all Firewall Manager policies
+    inputSchema:
+      type: object
+      properties:
+        maxResults:
+          type: integer
+        nextToken:
+          type: string
+  - name: putPolicy
+    description: Create or update a Firewall Manager policy
+    inputSchema:
+      type: object
+      properties:
+        Policy:
+          type: object
+        TagList:
+          type: array
+      required:
+      - Policy
+  - name: getPolicy
+    description: Get details for a Firewall Manager policy
+    inputSchema:
+      type: object
+      properties:
+        policyId:
+          type: string
+      required:
+      - policyId
+  - name: deletePolicy
+    description: Delete a Firewall Manager policy
+    inputSchema:
+      type: object
+      properties:
+        policyId:
+          type: string
+        deleteAllPolicyResources:
+          type: boolean
+      required:
+      - policyId
+  - name: getComplianceDetail
+    description: Get compliance detail for a member account
+    inputSchema:
+      type: object
+      properties:
+        policyId:
+          type: string
+        memberAccountId:
+          type: string
+      required:
+      - policyId
+      - memberAccountId
+  - name: getAdminAccount
+    description: Get the Firewall Manager administrator account
+    inputSchema:
+      type: object
+      properties: {}
+  - name: associateAdminAccount
+    description: Associate an account as Firewall Manager administrator
+    inputSchema:
+      type: object
+      properties:
+        AdminAccount:
+          type: string
+      required:
+      - AdminAccount
+  - name: disassociateAdminAccount
+    description: Disassociate the Firewall Manager administrator account
+    inputSchema:
+      type: object
+      properties: {}
+  - name: listMemberAccounts
+    description: List all member accounts in the organization
+    inputSchema:
+      type: object
+      properties:
+        nextToken:
+          type: string
+        maxResults:
+          type: integer
+  - name: putResourceSet
+    description: Create or update a resource set
+    inputSchema:
+      type: object
+      properties:
+        ResourceSet:
+          type: object
+      required:
+      - ResourceSet
+  - name: listResourceSets
+    description: List all resource sets
+    inputSchema:
+      type: object
+      properties:
+        NextToken:
+          type: string
+        MaxResults:
+          type: integer
+  - name: listTagsForResource
+    description: List tags for a Firewall Manager resource
+    inputSchema:
+      type: object
+      properties:
+        resourceArn:
+          type: string
+      required:
+      - resourceArn
+  - name: tagResource
+    description: Add tags to a Firewall Manager resource
+    inputSchema:
+      type: object
+      properties:
+        resourceArn:
+          type: string
+        TagList:
+          type: array
+      required:
+      - resourceArn
+      - TagList

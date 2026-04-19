@@ -1,0 +1,19 @@
+{
+  "PolicyId": "p-abc12345",
+  "PolicyName": "WAF-Policy-Production",
+  "PolicyUpdateToken": "1:abc123def456",
+  "SecurityServicePolicyData": {
+    "Type": "WAFV2",
+    "ManagedServiceData": "{\"type\":\"WAFV2\",\"defaultAction\":{\"type\":\"ALLOW\"}}"
+  },
+  "ResourceType": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+  "ExcludeResourceTags": false,
+  "RemediationEnabled": true,
+  "PolicyArn": "arn:aws:fms:us-east-1:123456789012:policy/p-abc12345",
+  "IncludeMap": {
+    "ACCOUNT": [
+      "123456789012"
+    ]
+  },
+  "ExcludeMap": {}
+}

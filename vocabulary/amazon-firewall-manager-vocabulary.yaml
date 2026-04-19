@@ -1,0 +1,74 @@
+vocabulary:
+  id: amazon-firewall-manager-vocabulary
+  name: Amazon Firewall Manager Vocabulary
+  description: Controlled vocabulary for AWS Firewall Manager centralized security policy management.
+  version: 1.0.0
+  provider: Amazon Web Services
+  resources:
+  - name: Policy
+    description: A Firewall Manager policy specifying security service type, target resources, and remediation behavior.
+    operations:
+    - putPolicy
+    - getPolicy
+    - listPolicies
+    - deletePolicy
+  - name: ComplianceStatus
+    description: Per-account compliance status of a Firewall Manager policy.
+    operations:
+    - getComplianceDetail
+  - name: AdminAccount
+    description: The AWS account designated as the Firewall Manager administrator.
+    operations:
+    - getAdminAccount
+    - associateAdminAccount
+    - disassociateAdminAccount
+  - name: MemberAccount
+    description: An AWS Organizations member account managed by Firewall Manager.
+    operations:
+    - listMemberAccounts
+  - name: ResourceSet
+    description: A named collection of AWS resources targeted by a policy.
+    operations:
+    - putResourceSet
+    - listResourceSets
+  - name: Tag
+    description: Key-value metadata label applied to Firewall Manager resources.
+    operations:
+    - listTagsForResource
+    - tagResource
+  actions:
+  - name: put
+    description: Create or update a resource (upsert).
+  - name: get
+    description: Retrieve details of a specific resource.
+  - name: list
+    description: Enumerate all resources of a given type.
+  - name: delete
+    description: Remove a resource.
+  - name: associate
+    description: Link an account or resource to Firewall Manager.
+  - name: disassociate
+    description: Unlink an account or resource from Firewall Manager.
+  - name: tag
+    description: Attach tags to a resource.
+  concepts:
+  - term: Remediation
+    definition: Automatic correction of non-compliant resources to match the Firewall Manager policy configuration.
+  - term: Compliance Violator
+    definition: A resource that does not meet the rules defined in a Firewall Manager policy.
+  - term: Security Service Type
+    definition: 'The AWS security service managed by a policy: WAF, WAFV2, Shield Advanced, Network Firewall, DNS Firewall, or Security Groups.'
+  - term: Resource Scope
+    definition: The set of AWS resource types targeted by a policy, optionally filtered by resource tags.
+  - term: Admin Account
+    definition: The delegated administrator account for AWS Firewall Manager within an AWS Organization.
+  - term: Stop Condition
+    definition: A CloudWatch alarm that automatically halts a Firewall Manager remediation action.
+  tags:
+  - Security
+  - Firewall
+  - Compliance
+  - Multi-Account
+  - AWS Organizations
+  - WAF
+  - Shield
