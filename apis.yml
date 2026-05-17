@@ -109,7 +109,7 @@ common:
   url: capabilities/amazon-firewall-manager-security-governance.yaml
 - type: Vocabulary
   url: vocabulary/amazon-firewall-manager-vocabulary.yaml
-- type: JSON-LD
+- type: JSONLD
   url: json-ld/amazon-firewall-manager-context.jsonld
 - type: Features
   data:
