@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AWS Firewall Manager API — Compliance
+  description: 'AWS Firewall Manager API — Compliance. 1 operations. Lead operation: Get Compliance Detail. Self-contained
+    Naftiko capability covering one Amazon Firewall Manager business surface.'
+  tags:
+  - Amazon Firewall Manager
+  - Compliance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_FIREWALL_MANAGER_API_KEY: AMAZON_FIREWALL_MANAGER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-firewall-manager-compliance
+    baseUri: https://fms.{region}.amazonaws.com
+    description: AWS Firewall Manager API — Compliance business capability. Self-contained, no shared references.
+    resources:
+    - name: fms-2018-01-01-compliance-policyId-detail-memberAccountId
+      path: /fms/2018-01-01/compliance/{policyId}/detail/{memberAccountId}
+      operations:
+      - name: getcompliancedetail
+        method: GET
+        description: Get Compliance Detail
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: policyId
+          in: path
+          type: string
+          description: The ID of the policy.
+          required: true
+        - name: memberAccountId
+          in: path
+          type: string
+          description: The AWS account ID.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_FIREWALL_MANAGER_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-firewall-manager-compliance-rest
+    port: 8080
+    description: REST adapter for AWS Firewall Manager API — Compliance. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/fms/2018-01-01/compliance/{policyid}/detail/{memberaccountid}
+      name: fms-2018-01-01-compliance-policyid-detail-memberaccountid
+      description: REST surface for fms-2018-01-01-compliance-policyId-detail-memberAccountId.
+      operations:
+      - method: GET
+        name: getcompliancedetail
+        description: Get Compliance Detail
+        call: amazon-firewall-manager-compliance.getcompliancedetail
+        with:
+          policyId: rest.policyId
+          memberAccountId: rest.memberAccountId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-firewall-manager-compliance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AWS Firewall Manager API — Compliance. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-compliance-detail
+      description: Get Compliance Detail
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-firewall-manager-compliance.getcompliancedetail
+      with:
+        policyId: tools.policyId
+        memberAccountId: tools.memberAccountId
+      outputParameters:
+      - type: object
+        mapping: $.

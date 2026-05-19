@@ -1,10 +1,8 @@
 aid: amazon-firewall-manager
 name: Amazon Firewall Manager
-description: >-
-  AWS Firewall Manager is a security management service that allows you to
-  centrally configure and manage firewall rules across your accounts and
-  applications in AWS Organizations. It makes it easier to bring new
-  applications and resources into compliance with security policies.
+description: AWS Firewall Manager is a security management service that allows you to centrally configure and manage firewall
+  rules across your accounts and applications in AWS Organizations. It makes it easier to bring new applications and resources
+  into compliance with security policies.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -13,18 +11,15 @@ tags:
 - Firewall
 - Network Security
 - Security
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-firewall-manager:aws-firewall-manager-api
   name: AWS Firewall Manager API
-  description: >-
-    The AWS Firewall Manager API provides programmatic access to create and
-    manage security policies, compliance status, and protection configurations
-    for AWS WAF, Shield, and VPC security groups across your organization.
+  description: The AWS Firewall Manager API provides programmatic access to create and manage security policies, compliance
+    status, and protection configurations for AWS WAF, Shield, and VPC security groups across your organization.
   humanURL: https://aws.amazon.com/firewall-manager/
   baseURL: https://fms.amazonaws.com
   tags:
@@ -74,6 +69,16 @@ apis:
     url: https://aws.amazon.com/firewall-manager/faqs/
   - type: APIReference
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
+  - type: NaftikoCapability
+    url: capabilities/amazon-firewall-manager-admin-accounts.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-firewall-manager-compliance.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-firewall-manager-member-accounts.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-firewall-manager-policies.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-firewall-manager-resources.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/firewall-manager/
@@ -103,10 +108,6 @@ common:
   url: https://stackoverflow.com/questions/tagged/aws-firewall-manager
 - type: SpectralRules
   url: rules/amazon-firewall-manager-spectral-rules.yml
-- type: NaftikoCapability
-  url: capabilities/shared/firewall-manager.yaml
-- type: NaftikoCapability
-  url: capabilities/amazon-firewall-manager-security-governance.yaml
 - type: Vocabulary
   url: vocabulary/amazon-firewall-manager-vocabulary.yaml
 - type: JSONLD
@@ -114,7 +115,8 @@ common:
 - type: Features
   data:
   - name: Centralized Policy Management
-    description: Define and enforce WAF, Shield Advanced, Network Firewall, and security group policies from a single pane of glass across all AWS accounts.
+    description: Define and enforce WAF, Shield Advanced, Network Firewall, and security group policies from a single pane
+      of glass across all AWS accounts.
   - name: Automatic Remediation
     description: Automatically remediate non-compliant resources so that new accounts and resources are always protected.
   - name: Multi-Account Support
@@ -162,15 +164,15 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/marketplace
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
