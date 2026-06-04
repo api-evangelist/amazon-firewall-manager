@@ -1,0 +1,98 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Firewall Manager Find And Tag Policy
+  summary: Find a policy in the policy list and apply governance tags to its ARN when it exists.
+  description: >-
+    Lists Firewall Manager policies and branches on whether any were returned:
+    when policies exist it applies a governance tag to the first policy's ARN
+    with TagResource and reads the tags back, and when the list is empty it ends
+    without writing. Each step inlines its request so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: firewallManagerApi
+  url: ../openapi/amazon-firewall-manager-openapi.yml
+  type: openapi
+workflows:
+- workflowId: find-and-tag-policy
+  summary: List policies and tag the first policy's ARN when at least one exists.
+  description: >-
+    Reads the policy list, and when at least one policy is present applies a
+    governance tag to the first policy's ARN and confirms it, otherwise ends.
+  inputs:
+    type: object
+    required:
+    - tagKey
+    - tagValue
+    properties:
+      maxResults:
+        type: integer
+        description: Maximum number of policies to return.
+      tagKey:
+        type: string
+        description: The key of the governance tag to apply.
+      tagValue:
+        type: string
+        description: The value of the governance tag to apply.
+  steps:
+  - stepId: listPolicies
+    description: >-
+      List the Firewall Manager policies and branch on whether any were
+      returned.
+    operationId: listPolicies
+    parameters:
+    - name: maxResults
+      in: query
+      value: $inputs.maxResults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyArn: $response.body#/PolicyList/0/PolicyArn
+      policyId: $response.body#/PolicyList/0/PolicyId
+    onSuccess:
+    - name: policyExists
+      type: goto
+      stepId: tagPolicy
+      criteria:
+      - context: $response.body
+        condition: $.PolicyList.length > 0
+        type: jsonpath
+    - name: noPolicies
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.PolicyList.length == 0
+        type: jsonpath
+  - stepId: tagPolicy
+    description: >-
+      Apply the supplied governance tag to the first policy using its ARN.
+    operationId: tagResource
+    parameters:
+    - name: resourceArn
+      in: path
+      value: $steps.listPolicies.outputs.policyArn
+    requestBody:
+      contentType: application/json
+      payload:
+        TagList:
+        - Key: $inputs.tagKey
+          Value: $inputs.tagValue
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: confirmPolicyTags
+    description: >-
+      List the tags for the policy ARN to confirm the governance tag was
+      applied.
+    operationId: listTagsForResource
+    parameters:
+    - name: resourceArn
+      in: path
+      value: $steps.listPolicies.outputs.policyArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tagList: $response.body#/TagList
+  outputs:
+    policyId: $steps.listPolicies.outputs.policyId
+    policyArn: $steps.listPolicies.outputs.policyArn
+    tagList: $steps.confirmPolicyTags.outputs.tagList

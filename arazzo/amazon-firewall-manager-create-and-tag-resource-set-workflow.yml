@@ -1,0 +1,96 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Firewall Manager Create And Tag Resource Set
+  summary: Create or update a resource set and apply tags to the resulting resource set ARN.
+  description: >-
+    Creates or updates a Firewall Manager resource set with PutResourceSet,
+    then applies one or more tags to the returned resource set ARN with
+    TagResource, and finally lists the tags back to confirm they were applied.
+    Each step inlines its request so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: firewallManagerApi
+  url: ../openapi/amazon-firewall-manager-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-and-tag-resource-set
+  summary: Put a resource set, tag its ARN, and confirm the tags were applied.
+  description: >-
+    Creates or updates a resource set, tags the returned resource set ARN, and
+    reads the tag list back to confirm the tags persisted.
+  inputs:
+    type: object
+    required:
+    - resourceSetName
+    - resourceTypeList
+    - tagKey
+    - tagValue
+    properties:
+      resourceSetName:
+        type: string
+        description: The name of the resource set.
+      description:
+        type: string
+        description: An optional description of the resource set.
+      resourceTypeList:
+        type: array
+        description: The resource types in scope for the resource set.
+        items:
+          type: string
+      tagKey:
+        type: string
+        description: The key of the tag to apply to the resource set.
+      tagValue:
+        type: string
+        description: The value of the tag to apply to the resource set.
+  steps:
+  - stepId: putResourceSet
+    description: >-
+      Create or update the resource set from the supplied name and resource
+      type list.
+    operationId: putResourceSet
+    requestBody:
+      contentType: application/json
+      payload:
+        ResourceSet:
+          Name: $inputs.resourceSetName
+          Description: $inputs.description
+          ResourceTypeList: $inputs.resourceTypeList
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      resourceSetId: $response.body#/ResourceSet/Id
+      resourceSetArn: $response.body#/ResourceSetArn
+  - stepId: tagResourceSet
+    description: >-
+      Apply the supplied tag to the resource set using its returned ARN.
+    operationId: tagResource
+    parameters:
+    - name: resourceArn
+      in: path
+      value: $steps.putResourceSet.outputs.resourceSetArn
+    requestBody:
+      contentType: application/json
+      payload:
+        TagList:
+        - Key: $inputs.tagKey
+          Value: $inputs.tagValue
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: confirmTags
+    description: >-
+      List the tags for the resource set ARN to confirm the tag was applied.
+    operationId: listTagsForResource
+    parameters:
+    - name: resourceArn
+      in: path
+      value: $steps.putResourceSet.outputs.resourceSetArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tagList: $response.body#/TagList
+  outputs:
+    resourceSetId: $steps.putResourceSet.outputs.resourceSetId
+    resourceSetArn: $steps.putResourceSet.outputs.resourceSetArn
+    tagList: $steps.confirmTags.outputs.tagList

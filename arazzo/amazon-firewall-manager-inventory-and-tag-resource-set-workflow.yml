@@ -1,0 +1,100 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Firewall Manager Inventory And Tag Resource Set
+  summary: List resource sets, read one back by id, and apply an ownership tag to it.
+  description: >-
+    Lists the Firewall Manager resource sets, takes the first summary, reads the
+    full resource set back with PutResourceSet to obtain its ARN-bearing
+    representation, and applies an ownership tag to that resource set with
+    TagResource. Each step inlines its request so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: firewallManagerApi
+  url: ../openapi/amazon-firewall-manager-openapi.yml
+  type: openapi
+workflows:
+- workflowId: inventory-and-tag-resource-set
+  summary: List resource sets and apply an ownership tag to the first one returned.
+  description: >-
+    Reads the resource set list, and when at least one resource set exists
+    refreshes it through PutResourceSet to obtain its ARN and applies an
+    ownership tag, otherwise ends.
+  inputs:
+    type: object
+    required:
+    - tagKey
+    - tagValue
+    properties:
+      maxResults:
+        type: integer
+        description: Maximum number of resource sets to return.
+      tagKey:
+        type: string
+        description: The key of the ownership tag to apply.
+      tagValue:
+        type: string
+        description: The value of the ownership tag to apply.
+  steps:
+  - stepId: listResourceSets
+    description: >-
+      List the resource sets and branch on whether any were returned.
+    operationId: listResourceSets
+    requestBody:
+      contentType: application/json
+      payload:
+        MaxResults: $inputs.maxResults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstResourceSetName: $response.body#/ResourceSets/0/Name
+      firstResourceTypeList: $response.body#/ResourceSets/0/ResourceTypeList
+    onSuccess:
+    - name: resourceSetExists
+      type: goto
+      stepId: refreshResourceSet
+      criteria:
+      - context: $response.body
+        condition: $.ResourceSets.length > 0
+        type: jsonpath
+    - name: noResourceSets
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.ResourceSets.length == 0
+        type: jsonpath
+  - stepId: refreshResourceSet
+    description: >-
+      Refresh the first resource set through PutResourceSet to obtain its ARN
+      for tagging.
+    operationId: putResourceSet
+    requestBody:
+      contentType: application/json
+      payload:
+        ResourceSet:
+          Name: $steps.listResourceSets.outputs.firstResourceSetName
+          ResourceTypeList: $steps.listResourceSets.outputs.firstResourceTypeList
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      resourceSetId: $response.body#/ResourceSet/Id
+      resourceSetArn: $response.body#/ResourceSetArn
+  - stepId: tagResourceSet
+    description: >-
+      Apply the supplied ownership tag to the resource set using its ARN.
+    operationId: tagResource
+    parameters:
+    - name: resourceArn
+      in: path
+      value: $steps.refreshResourceSet.outputs.resourceSetArn
+    requestBody:
+      contentType: application/json
+      payload:
+        TagList:
+        - Key: $inputs.tagKey
+          Value: $inputs.tagValue
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    resourceSetId: $steps.refreshResourceSet.outputs.resourceSetId
+    resourceSetArn: $steps.refreshResourceSet.outputs.resourceSetArn

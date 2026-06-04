@@ -1,0 +1,79 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Firewall Manager Decommission Policy
+  summary: Confirm a policy exists, then delete it and all of its managed resources.
+  description: >-
+    Reads a Firewall Manager policy by its id to confirm it exists, and on a
+    successful read deletes the policy with DeletePolicy, optionally removing all
+    of its managed resource associations. The read step branches to end the
+    workflow when the policy is not found. Each step inlines its request so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: firewallManagerApi
+  url: ../openapi/amazon-firewall-manager-openapi.yml
+  type: openapi
+workflows:
+- workflowId: decommission-policy
+  summary: Verify a policy exists and then delete it along with its managed resources.
+  description: >-
+    Confirms the target policy exists with GetPolicy and then deletes it with
+    DeletePolicy, branching to end if the policy is not found.
+  inputs:
+    type: object
+    required:
+    - policyId
+    properties:
+      policyId:
+        type: string
+        description: The ID of the policy to delete.
+      deleteAllPolicyResources:
+        type: boolean
+        description: If true, deletes all Firewall Manager-managed resource associations.
+  steps:
+  - stepId: getPolicy
+    description: >-
+      Read the policy by its id to confirm it exists before deleting it; branch
+      to end when the policy is not found.
+    operationId: getPolicy
+    parameters:
+    - name: policyId
+      in: path
+      value: $inputs.policyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyName: $response.body#/Policy/PolicyName
+      policyArn: $response.body#/PolicyArn
+    onSuccess:
+    - name: policyFound
+      type: goto
+      stepId: deletePolicy
+      criteria:
+      - condition: $statusCode == 200
+    onFailure:
+    - name: policyMissing
+      type: end
+      criteria:
+      - condition: $statusCode == 404
+  - stepId: deletePolicy
+    description: >-
+      Permanently delete the policy, optionally removing all of its managed
+      resource associations.
+    operationId: deletePolicy
+    parameters:
+    - name: policyId
+      in: path
+      value: $inputs.policyId
+    - name: deleteAllPolicyResources
+      in: query
+      value: $inputs.deleteAllPolicyResources
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deletedStatusCode: $statusCode
+  outputs:
+    deletedPolicyName: $steps.getPolicy.outputs.policyName
+    deletedPolicyArn: $steps.getPolicy.outputs.policyArn
+    deletedStatusCode: $steps.deletePolicy.outputs.deletedStatusCode

@@ -1,0 +1,84 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Firewall Manager Resource Set Driven Policy
+  summary: Create a resource set and then create a policy scoped to the same resource type.
+  description: >-
+    Creates or updates a Firewall Manager resource set with PutResourceSet,
+    captures its identifier, and then creates a matching policy with PutPolicy
+    scoped to the same resource type so the resource set and policy are
+    provisioned together. Each step inlines its request so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: firewallManagerApi
+  url: ../openapi/amazon-firewall-manager-openapi.yml
+  type: openapi
+workflows:
+- workflowId: resource-set-driven-policy
+  summary: Provision a resource set and a policy scoped to the same resource type in one flow.
+  description: >-
+    Creates a resource set for a resource type and then creates a Firewall
+    Manager policy targeting that same resource type, returning both
+    identifiers.
+  inputs:
+    type: object
+    required:
+    - resourceSetName
+    - resourceType
+    - policyName
+    - securityServiceType
+    properties:
+      resourceSetName:
+        type: string
+        description: The name of the resource set to create.
+      resourceType:
+        type: string
+        description: The resource type in scope for both the resource set and the policy.
+      policyName:
+        type: string
+        description: The friendly name of the policy to create.
+      securityServiceType:
+        type: string
+        description: The security service type for the policy, e.g. WAFV2.
+  steps:
+  - stepId: putResourceSet
+    description: >-
+      Create or update the resource set scoped to the supplied resource type.
+    operationId: putResourceSet
+    requestBody:
+      contentType: application/json
+      payload:
+        ResourceSet:
+          Name: $inputs.resourceSetName
+          ResourceTypeList:
+          - $inputs.resourceType
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      resourceSetId: $response.body#/ResourceSet/Id
+      resourceSetArn: $response.body#/ResourceSetArn
+  - stepId: putPolicy
+    description: >-
+      Create the Firewall Manager policy scoped to the same resource type as the
+      resource set.
+    operationId: putPolicy
+    requestBody:
+      contentType: application/json
+      payload:
+        Policy:
+          PolicyName: $inputs.policyName
+          SecurityServicePolicyData:
+            Type: $inputs.securityServiceType
+          ResourceType: $inputs.resourceType
+          ExcludeResourceTags: false
+          RemediationEnabled: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyId: $response.body#/Policy/PolicyId
+      policyArn: $response.body#/PolicyArn
+  outputs:
+    resourceSetId: $steps.putResourceSet.outputs.resourceSetId
+    resourceSetArn: $steps.putResourceSet.outputs.resourceSetArn
+    policyId: $steps.putPolicy.outputs.policyId
+    policyArn: $steps.putPolicy.outputs.policyArn

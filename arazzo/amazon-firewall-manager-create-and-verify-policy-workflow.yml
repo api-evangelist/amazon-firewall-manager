@@ -1,0 +1,81 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Firewall Manager Create And Verify Policy
+  summary: Create or update a Firewall Manager policy and confirm it persisted by reading it back.
+  description: >-
+    Creates or updates an AWS Firewall Manager security policy with PutPolicy,
+    then reads the stored policy back with GetPolicy using the returned policy
+    id to confirm the write succeeded. Each step inlines its request so the flow
+    can be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: firewallManagerApi
+  url: ../openapi/amazon-firewall-manager-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-and-verify-policy
+  summary: Put a Firewall Manager policy and read it back to confirm it persisted.
+  description: >-
+    Submits a policy definition to PutPolicy and then fetches the same policy
+    by its id to verify the create-or-update operation took effect.
+  inputs:
+    type: object
+    required:
+    - policyName
+    - securityServiceType
+    - resourceType
+    properties:
+      policyName:
+        type: string
+        description: The friendly name of the Firewall Manager policy.
+      securityServiceType:
+        type: string
+        description: The security service type, e.g. WAFV2 or SHIELD_ADVANCED.
+      resourceType:
+        type: string
+        description: The resource type the policy applies to, e.g. AWS::ElasticLoadBalancingV2::LoadBalancer.
+      excludeResourceTags:
+        type: boolean
+        description: Whether to exclude rather than include the tagged resources.
+      remediationEnabled:
+        type: boolean
+        description: Whether Firewall Manager automatically remediates noncompliant resources.
+  steps:
+  - stepId: putPolicy
+    description: >-
+      Create or update the Firewall Manager policy from the supplied policy
+      definition.
+    operationId: putPolicy
+    requestBody:
+      contentType: application/json
+      payload:
+        Policy:
+          PolicyName: $inputs.policyName
+          SecurityServicePolicyData:
+            Type: $inputs.securityServiceType
+          ResourceType: $inputs.resourceType
+          ExcludeResourceTags: $inputs.excludeResourceTags
+          RemediationEnabled: $inputs.remediationEnabled
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyId: $response.body#/Policy/PolicyId
+      policyArn: $response.body#/PolicyArn
+      policyUpdateToken: $response.body#/Policy/PolicyUpdateToken
+  - stepId: verifyPolicy
+    description: >-
+      Read the policy back by its id to confirm the create-or-update succeeded.
+    operationId: getPolicy
+    parameters:
+    - name: policyId
+      in: path
+      value: $steps.putPolicy.outputs.policyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyName: $response.body#/Policy/PolicyName
+      policyArn: $response.body#/PolicyArn
+  outputs:
+    policyId: $steps.putPolicy.outputs.policyId
+    policyArn: $steps.verifyPolicy.outputs.policyArn
+    policyName: $steps.verifyPolicy.outputs.policyName

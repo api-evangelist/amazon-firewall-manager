@@ -1,0 +1,55 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Firewall Manager Onboard Admin Account
+  summary: Set the Firewall Manager administrator account and confirm its association and role status.
+  description: >-
+    Sets an AWS account as the AWS Firewall Manager administrator account with
+    AssociateAdminAccount, then reads the administrator association back with
+    GetAdminAccount to confirm the account and surface its role status. Each
+    step inlines its request so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: firewallManagerApi
+  url: ../openapi/amazon-firewall-manager-openapi.yml
+  type: openapi
+workflows:
+- workflowId: onboard-admin-account
+  summary: Associate a Firewall Manager administrator account and verify its role status.
+  description: >-
+    Sets the supplied AWS account as the Firewall Manager administrator account
+    and then reads the association back to confirm the account id and role
+    status.
+  inputs:
+    type: object
+    required:
+    - adminAccount
+    properties:
+      adminAccount:
+        type: string
+        description: The AWS account ID to set as the Firewall Manager administrator account.
+  steps:
+  - stepId: associateAdminAccount
+    description: >-
+      Set the supplied AWS account as the Firewall Manager administrator
+      account.
+    operationId: associateAdminAccount
+    requestBody:
+      contentType: application/json
+      payload:
+        AdminAccount: $inputs.adminAccount
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: confirmAdminAccount
+    description: >-
+      Read the administrator association back to confirm the account id and
+      surface the current role status.
+    operationId: getAdminAccount
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      adminAccount: $response.body#/AdminAccount
+      roleStatus: $response.body#/RoleStatus
+  outputs:
+    adminAccount: $steps.confirmAdminAccount.outputs.adminAccount
+    roleStatus: $steps.confirmAdminAccount.outputs.roleStatus

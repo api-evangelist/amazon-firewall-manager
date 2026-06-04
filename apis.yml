@@ -80,6 +80,33 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-firewall-manager-resources.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/amazon-firewall-manager-audit-policy-compliance-workflow.yml
+    name: Amazon Firewall Manager Audit Policy Compliance
+    summary: Resolve a policy, enumerate member accounts, and pull compliance detail for a chosen account.
+  - url: arazzo/amazon-firewall-manager-create-and-tag-resource-set-workflow.yml
+    name: Amazon Firewall Manager Create And Tag Resource Set
+    summary: Create or update a resource set and apply tags to the resulting resource set ARN.
+  - url: arazzo/amazon-firewall-manager-create-and-verify-policy-workflow.yml
+    name: Amazon Firewall Manager Create And Verify Policy
+    summary: Create or update a Firewall Manager policy and confirm it persisted by reading it back.
+  - url: arazzo/amazon-firewall-manager-decommission-policy-workflow.yml
+    name: Amazon Firewall Manager Decommission Policy
+    summary: Confirm a policy exists, then delete it and all of its managed resources.
+  - url: arazzo/amazon-firewall-manager-find-and-tag-policy-workflow.yml
+    name: Amazon Firewall Manager Find And Tag Policy
+    summary: Find a policy in the policy list and apply governance tags to its ARN when it exists.
+  - url: arazzo/amazon-firewall-manager-inventory-and-tag-resource-set-workflow.yml
+    name: Amazon Firewall Manager Inventory And Tag Resource Set
+    summary: List resource sets, read one back by id, and apply an ownership tag to it.
+  - url: arazzo/amazon-firewall-manager-onboard-admin-account-workflow.yml
+    name: Amazon Firewall Manager Onboard Admin Account
+    summary: Set the Firewall Manager administrator account and confirm its association and role status.
+  - url: arazzo/amazon-firewall-manager-resource-set-driven-policy-workflow.yml
+    name: Amazon Firewall Manager Resource Set Driven Policy
+    summary: Create a resource set and then create a policy scoped to the same resource type.
 - type: Portal
   url: https://aws.amazon.com/firewall-manager/
 - type: Website
