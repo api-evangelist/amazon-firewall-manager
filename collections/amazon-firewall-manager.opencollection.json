@@ -1,0 +1,301 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Firewall Manager API",
+    "version": "2018-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/policies",
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of policies to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token."
+              }
+            ]
+          },
+          "docs": "Returns an array of PolicySummary objects."
+        },
+        {
+          "info": {
+            "name": "Put Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/policies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates an AWS Firewall Manager policy."
+        },
+        {
+          "info": {
+            "name": "Get Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/policies/:policyId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy."
+              }
+            ]
+          },
+          "docs": "Returns information about the specified AWS Firewall Manager policy."
+        },
+        {
+          "info": {
+            "name": "Delete Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/policies/:policyId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy."
+              },
+              {
+                "name": "deleteAllPolicyResources",
+                "value": "",
+                "type": "query",
+                "description": "If True, the request deletes all AWS Firewall Manager-managed internet gateway associations."
+              }
+            ]
+          },
+          "docs": "Permanently deletes an AWS Firewall Manager policy."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Compliance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Compliance Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/compliance/:policyId/detail/:memberAccountId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy."
+              },
+              {
+                "name": "memberAccountId",
+                "value": "",
+                "type": "path",
+                "description": "The AWS account ID."
+              }
+            ]
+          },
+          "docs": "Returns detailed compliance information about the specified member account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Admin Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Admin Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/admin-account"
+          },
+          "docs": "Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager default administrator."
+        },
+        {
+          "info": {
+            "name": "Associate Admin Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/admin-account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets the AWS Firewall Manager administrator account."
+        },
+        {
+          "info": {
+            "name": "Disassociate Admin Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/admin-account"
+          },
+          "docs": "Disassociates the account that has been set as the AWS Firewall Manager administrator account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Member Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Member Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/member-account",
+            "params": [
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of accounts to return."
+              }
+            ]
+          },
+          "docs": "Returns a MemberAccounts object that lists the member accounts in the administrator account's AWS organization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Put Resource Set",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/resource-set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a resource set."
+        },
+        {
+          "info": {
+            "name": "List Resource Sets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/resource-set/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns an array of ResourceSetSummary objects."
+        },
+        {
+          "info": {
+            "name": "List Tags For Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/tags/:resourceArn",
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The Amazon Resource Name (ARN) of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieves the list of tags for the specified AWS resource."
+        },
+        {
+          "info": {
+            "name": "Tag Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/tags/:resourceArn",
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The ARN of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds one or more tags to an AWS resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

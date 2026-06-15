@@ -1,0 +1,3007 @@
+{
+  "info": {
+    "_postman_id": "1f7b9af9-7835-47aa-97b8-bb224916f477",
+    "name": "AWS Firewall Manager API",
+    "description": "AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.\n\nContact Support:\n Name: AWS Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:03:57.000Z",
+    "updatedAt": "2026-06-05T15:03:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1f7b9af9-7835-47aa-97b8-bb224916f477"
+  },
+  "item": [
+    {
+      "name": "fms",
+      "item": [
+        {
+          "name": "2018-01-01",
+          "item": [
+            {
+              "name": "policies",
+              "item": [
+                {
+                  "name": "{policyId}",
+                  "item": [
+                    {
+                      "name": "Get Policy",
+                      "id": "538d708a-231a-4e5e-833a-c620b1bdbbad",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "policies",
+                            ":policyId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b87e1b0f-0c06-4511-8ab4-b32184af985b",
+                              "key": "policyId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the policy."
+                            }
+                          ]
+                        },
+                        "description": "Returns information about the specified AWS Firewall Manager policy."
+                      },
+                      "response": [
+                        {
+                          "id": "4c5520b9-fa84-4fb4-8736-2b6b3cae0348",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "policies",
+                                ":policyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Policy\": {\n    \"PolicyName\": \"<string>\",\n    \"SecurityServicePolicyData\": {\n      \"Type\": \"SECURITY_GROUPS_CONTENT_AUDIT\",\n      \"ManagedServiceData\": \"<string>\",\n      \"PolicyOption\": {}\n    },\n    \"ResourceType\": \"<string>\",\n    \"ExcludeResourceTags\": \"<boolean>\",\n    \"RemediationEnabled\": \"<boolean>\",\n    \"PolicyId\": \"<string>\",\n    \"PolicyUpdateToken\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ResourceTags\": [\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      }\n    ],\n    \"PolicyArn\": \"<string>\",\n    \"IncludeMap\": {\n      \"eiusmod_ff\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"culpa5\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"ExcludeMap\": {\n      \"etc5\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"PolicyArn\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-4c5520b9-fa84-4fb4-8736-2b6b3cae0348"
+                        },
+                        {
+                          "id": "e6a9fb41-3696-439e-90c0-ee017a474290",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "policies",
+                                ":policyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-e6a9fb41-3696-439e-90c0-ee017a474290"
+                        },
+                        {
+                          "id": "cbff24f6-8de1-423c-8212-3a8b375b36ec",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "policies",
+                                ":policyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-cbff24f6-8de1-423c-8212-3a8b375b36ec"
+                        },
+                        {
+                          "id": "b29589ce-5a6b-43ba-a7e4-7f4e61958380",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "policies",
+                                ":policyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-b29589ce-5a6b-43ba-a7e4-7f4e61958380"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-538d708a-231a-4e5e-833a-c620b1bdbbad"
+                    },
+                    {
+                      "name": "Delete Policy",
+                      "id": "a20f0166-3547-41e0-984d-74298163d444",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId?deleteAllPolicyResources=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "policies",
+                            ":policyId"
+                          ],
+                          "query": [
+                            {
+                              "description": "If True, the request deletes all AWS Firewall Manager-managed internet gateway associations.",
+                              "key": "deleteAllPolicyResources",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c11fcc09-642c-4815-8240-26bd1013210f",
+                              "key": "policyId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the policy."
+                            }
+                          ]
+                        },
+                        "description": "Permanently deletes an AWS Firewall Manager policy."
+                      },
+                      "response": [
+                        {
+                          "id": "0bfea40e-bae4-4ef4-b2c3-3c08bbc0bc6d",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId?deleteAllPolicyResources=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "policies",
+                                ":policyId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If True, the request deletes all AWS Firewall Manager-managed internet gateway associations.",
+                                  "key": "deleteAllPolicyResources",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-0bfea40e-bae4-4ef4-b2c3-3c08bbc0bc6d"
+                        },
+                        {
+                          "id": "a00cf5f0-dcc7-4ccf-b934-acdd1edd20e6",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId?deleteAllPolicyResources=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "policies",
+                                ":policyId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If True, the request deletes all AWS Firewall Manager-managed internet gateway associations.",
+                                  "key": "deleteAllPolicyResources",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-a00cf5f0-dcc7-4ccf-b934-acdd1edd20e6"
+                        },
+                        {
+                          "id": "dbb92e97-d38f-4e25-8bb4-27bcc9465051",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId?deleteAllPolicyResources=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "policies",
+                                ":policyId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If True, the request deletes all AWS Firewall Manager-managed internet gateway associations.",
+                                  "key": "deleteAllPolicyResources",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-dbb92e97-d38f-4e25-8bb4-27bcc9465051"
+                        },
+                        {
+                          "id": "9dd3bf7a-a1a1-44a1-8de2-1b8bafed9752",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/policies/:policyId?deleteAllPolicyResources=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "policies",
+                                ":policyId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If True, the request deletes all AWS Firewall Manager-managed internet gateway associations.",
+                                  "key": "deleteAllPolicyResources",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-9dd3bf7a-a1a1-44a1-8de2-1b8bafed9752"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-a20f0166-3547-41e0-984d-74298163d444"
+                    }
+                  ],
+                  "id": "77a20177-6a37-4d7a-a7af-feb150d43e11",
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-77a20177-6a37-4d7a-a7af-feb150d43e11"
+                },
+                {
+                  "name": "List Policies",
+                  "id": "00d86279-3ab2-464c-9848-1a8684e4402b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fms/2018-01-01/policies?maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fms",
+                        "2018-01-01",
+                        "policies"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of policies to return.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Pagination token.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Returns an array of PolicySummary objects."
+                  },
+                  "response": [
+                    {
+                      "id": "726576de-090a-4edb-a1db-8fcea3d57550",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/policies?maxResults=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "policies"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of policies to return.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Pagination token.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"PolicyList\": [\n    {\n      \"PolicyName\": \"<string>\",\n      \"SecurityServicePolicyData\": {\n        \"Type\": \"WAF\",\n        \"ManagedServiceData\": \"<string>\",\n        \"PolicyOption\": {}\n      },\n      \"ResourceType\": \"<string>\",\n      \"ExcludeResourceTags\": \"<boolean>\",\n      \"RemediationEnabled\": \"<boolean>\",\n      \"PolicyId\": \"<string>\",\n      \"PolicyUpdateToken\": \"<string>\",\n      \"ResourceTypeList\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ResourceTags\": [\n        {\n          \"Key\": \"<string>\",\n          \"Value\": \"<string>\"\n        },\n        {\n          \"Key\": \"<string>\",\n          \"Value\": \"<string>\"\n        }\n      ],\n      \"PolicyArn\": \"<string>\",\n      \"IncludeMap\": {\n        \"qui7a\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"ExcludeMap\": {\n        \"irure049\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"PolicyName\": \"<string>\",\n      \"SecurityServicePolicyData\": {\n        \"Type\": \"NETWORK_FIREWALL\",\n        \"ManagedServiceData\": \"<string>\",\n        \"PolicyOption\": {}\n      },\n      \"ResourceType\": \"<string>\",\n      \"ExcludeResourceTags\": \"<boolean>\",\n      \"RemediationEnabled\": \"<boolean>\",\n      \"PolicyId\": \"<string>\",\n      \"PolicyUpdateToken\": \"<string>\",\n      \"ResourceTypeList\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ResourceTags\": [\n        {\n          \"Key\": \"<string>\",\n          \"Value\": \"<string>\"\n        },\n        {\n          \"Key\": \"<string>\",\n          \"Value\": \"<string>\"\n        }\n      ],\n      \"PolicyArn\": \"<string>\",\n      \"IncludeMap\": {\n        \"ine\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"in_48\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"ExcludeMap\": {\n        \"ute6d\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"qui_d\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"NextToken\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-726576de-090a-4edb-a1db-8fcea3d57550"
+                    },
+                    {
+                      "id": "20bb7baa-6c6d-4b79-bb73-191d3bbc91b2",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/policies?maxResults=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "policies"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of policies to return.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Pagination token.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-20bb7baa-6c6d-4b79-bb73-191d3bbc91b2"
+                    },
+                    {
+                      "id": "86b2babe-e67c-4379-89da-0eda13392b23",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/policies?maxResults=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "policies"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of policies to return.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Pagination token.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-86b2babe-e67c-4379-89da-0eda13392b23"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-00d86279-3ab2-464c-9848-1a8684e4402b"
+                },
+                {
+                  "name": "Put Policy",
+                  "id": "4d712dd7-8757-42a4-95eb-f42e69034865",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Policy\": {\n    \"PolicyName\": \"<string>\",\n    \"SecurityServicePolicyData\": {\n      \"Type\": \"DNS_FIREWALL\",\n      \"ManagedServiceData\": \"<string>\",\n      \"PolicyOption\": {}\n    },\n    \"ResourceType\": \"<string>\",\n    \"ExcludeResourceTags\": \"<boolean>\",\n    \"RemediationEnabled\": \"<boolean>\",\n    \"PolicyId\": \"<string>\",\n    \"PolicyUpdateToken\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ResourceTags\": [\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      }\n    ],\n    \"PolicyArn\": \"<string>\",\n    \"IncludeMap\": {\n      \"mollitb8\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sit_98\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"ExcludeMap\": {\n      \"enim_c11\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"commodo451\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fms/2018-01-01/policies",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fms",
+                        "2018-01-01",
+                        "policies"
+                      ]
+                    },
+                    "description": "Creates or updates an AWS Firewall Manager policy."
+                  },
+                  "response": [
+                    {
+                      "id": "d989413d-d98e-486b-b1fe-d071ffc8c3d3",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Policy\": {\n    \"PolicyName\": \"<string>\",\n    \"SecurityServicePolicyData\": {\n      \"Type\": \"DNS_FIREWALL\",\n      \"ManagedServiceData\": \"<string>\",\n      \"PolicyOption\": {}\n    },\n    \"ResourceType\": \"<string>\",\n    \"ExcludeResourceTags\": \"<boolean>\",\n    \"RemediationEnabled\": \"<boolean>\",\n    \"PolicyId\": \"<string>\",\n    \"PolicyUpdateToken\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ResourceTags\": [\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      }\n    ],\n    \"PolicyArn\": \"<string>\",\n    \"IncludeMap\": {\n      \"mollitb8\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sit_98\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"ExcludeMap\": {\n      \"enim_c11\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"commodo451\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/policies",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "policies"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Policy\": {\n    \"PolicyName\": \"<string>\",\n    \"SecurityServicePolicyData\": {\n      \"Type\": \"SECURITY_GROUPS_CONTENT_AUDIT\",\n      \"ManagedServiceData\": \"<string>\",\n      \"PolicyOption\": {}\n    },\n    \"ResourceType\": \"<string>\",\n    \"ExcludeResourceTags\": \"<boolean>\",\n    \"RemediationEnabled\": \"<boolean>\",\n    \"PolicyId\": \"<string>\",\n    \"PolicyUpdateToken\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ResourceTags\": [\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      }\n    ],\n    \"PolicyArn\": \"<string>\",\n    \"IncludeMap\": {\n      \"eiusmod_ff\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"culpa5\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"ExcludeMap\": {\n      \"etc5\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"PolicyArn\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-d989413d-d98e-486b-b1fe-d071ffc8c3d3"
+                    },
+                    {
+                      "id": "2bc8a887-2430-4be1-9082-5a681f8920ff",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Policy\": {\n    \"PolicyName\": \"<string>\",\n    \"SecurityServicePolicyData\": {\n      \"Type\": \"DNS_FIREWALL\",\n      \"ManagedServiceData\": \"<string>\",\n      \"PolicyOption\": {}\n    },\n    \"ResourceType\": \"<string>\",\n    \"ExcludeResourceTags\": \"<boolean>\",\n    \"RemediationEnabled\": \"<boolean>\",\n    \"PolicyId\": \"<string>\",\n    \"PolicyUpdateToken\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ResourceTags\": [\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      }\n    ],\n    \"PolicyArn\": \"<string>\",\n    \"IncludeMap\": {\n      \"mollitb8\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sit_98\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"ExcludeMap\": {\n      \"enim_c11\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"commodo451\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/policies",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "policies"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-2bc8a887-2430-4be1-9082-5a681f8920ff"
+                    },
+                    {
+                      "id": "c340fabc-c7ea-4a74-b864-c7082c6d584b",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Policy\": {\n    \"PolicyName\": \"<string>\",\n    \"SecurityServicePolicyData\": {\n      \"Type\": \"DNS_FIREWALL\",\n      \"ManagedServiceData\": \"<string>\",\n      \"PolicyOption\": {}\n    },\n    \"ResourceType\": \"<string>\",\n    \"ExcludeResourceTags\": \"<boolean>\",\n    \"RemediationEnabled\": \"<boolean>\",\n    \"PolicyId\": \"<string>\",\n    \"PolicyUpdateToken\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ResourceTags\": [\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Value\": \"<string>\"\n      }\n    ],\n    \"PolicyArn\": \"<string>\",\n    \"IncludeMap\": {\n      \"mollitb8\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sit_98\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"ExcludeMap\": {\n      \"enim_c11\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"commodo451\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/policies",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "policies"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-c340fabc-c7ea-4a74-b864-c7082c6d584b"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-4d712dd7-8757-42a4-95eb-f42e69034865"
+                }
+              ],
+              "id": "46db2dba-5318-4181-9611-220ccc5ec3f0",
+              "createdAt": "2026-06-05T15:03:57.000Z",
+              "updatedAt": "2026-06-05T15:03:57.000Z",
+              "uid": "35240-46db2dba-5318-4181-9611-220ccc5ec3f0"
+            },
+            {
+              "name": "compliance",
+              "item": [
+                {
+                  "name": "{policyId}",
+                  "item": [
+                    {
+                      "name": "detail",
+                      "item": [
+                        {
+                          "name": "{memberAccountId}",
+                          "item": [
+                            {
+                              "name": "Get Compliance Detail",
+                              "id": "9d3fe068-692c-41b9-ba0c-cefa1bbbcd56",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/fms/2018-01-01/compliance/:policyId/detail/:memberAccountId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "fms",
+                                    "2018-01-01",
+                                    "compliance",
+                                    ":policyId",
+                                    "detail",
+                                    ":memberAccountId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "cbe84160-b407-404a-a85f-6bdf69ca8ff0",
+                                      "key": "policyId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the policy."
+                                    },
+                                    {
+                                      "id": "a3aff61d-0310-4fdd-8597-f40d1e3cf15c",
+                                      "key": "memberAccountId",
+                                      "value": "<string>",
+                                      "description": "(Required) The AWS account ID."
+                                    }
+                                  ]
+                                },
+                                "description": "Returns detailed compliance information about the specified member account."
+                              },
+                              "response": [
+                                {
+                                  "id": "7961943d-3d1b-41bf-a7d9-c525c1f0efd5",
+                                  "name": "Success",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/fms/2018-01-01/compliance/:policyId/detail/:memberAccountId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "fms",
+                                        "2018-01-01",
+                                        "compliance",
+                                        ":policyId",
+                                        "detail",
+                                        ":memberAccountId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "policyId"
+                                        },
+                                        {
+                                          "key": "memberAccountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"PolicyComplianceDetail\": {}\n}",
+                                  "createdAt": "2026-06-05T15:03:57.000Z",
+                                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                                  "uid": "35240-7961943d-3d1b-41bf-a7d9-c525c1f0efd5"
+                                },
+                                {
+                                  "id": "6a73afc8-05c3-43c9-a4b7-ec28f0ab095f",
+                                  "name": "Bad Request",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/fms/2018-01-01/compliance/:policyId/detail/:memberAccountId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "fms",
+                                        "2018-01-01",
+                                        "compliance",
+                                        ":policyId",
+                                        "detail",
+                                        ":memberAccountId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "policyId"
+                                        },
+                                        {
+                                          "key": "memberAccountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                                  "createdAt": "2026-06-05T15:03:57.000Z",
+                                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                                  "uid": "35240-6a73afc8-05c3-43c9-a4b7-ec28f0ab095f"
+                                },
+                                {
+                                  "id": "2a37ef15-a3c7-450d-a687-b216bceab215",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/fms/2018-01-01/compliance/:policyId/detail/:memberAccountId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "fms",
+                                        "2018-01-01",
+                                        "compliance",
+                                        ":policyId",
+                                        "detail",
+                                        ":memberAccountId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "policyId"
+                                        },
+                                        {
+                                          "key": "memberAccountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                                  "createdAt": "2026-06-05T15:03:57.000Z",
+                                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                                  "uid": "35240-2a37ef15-a3c7-450d-a687-b216bceab215"
+                                },
+                                {
+                                  "id": "b520cca6-af99-481b-9236-b4dea3fe0fa6",
+                                  "name": "Internal Server Error",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/fms/2018-01-01/compliance/:policyId/detail/:memberAccountId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "fms",
+                                        "2018-01-01",
+                                        "compliance",
+                                        ":policyId",
+                                        "detail",
+                                        ":memberAccountId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "policyId"
+                                        },
+                                        {
+                                          "key": "memberAccountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                                  "createdAt": "2026-06-05T15:03:57.000Z",
+                                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                                  "uid": "35240-b520cca6-af99-481b-9236-b4dea3fe0fa6"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T15:03:57.000Z",
+                              "updatedAt": "2026-06-05T15:03:57.000Z",
+                              "uid": "35240-9d3fe068-692c-41b9-ba0c-cefa1bbbcd56"
+                            }
+                          ],
+                          "id": "359b788a-471f-42ec-9355-03e4078ceba6",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-359b788a-471f-42ec-9355-03e4078ceba6"
+                        }
+                      ],
+                      "id": "d2fc84d1-f7b8-400b-a225-52f7483c8d45",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-d2fc84d1-f7b8-400b-a225-52f7483c8d45"
+                    }
+                  ],
+                  "id": "a15ebff1-60ec-4ba8-be54-8149ffda13cd",
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-a15ebff1-60ec-4ba8-be54-8149ffda13cd"
+                }
+              ],
+              "id": "5a006d22-2b66-46fc-b759-0b94d921328f",
+              "createdAt": "2026-06-05T15:03:57.000Z",
+              "updatedAt": "2026-06-05T15:03:57.000Z",
+              "uid": "35240-5a006d22-2b66-46fc-b759-0b94d921328f"
+            },
+            {
+              "name": "admin-account",
+              "item": [
+                {
+                  "name": "Get Admin Account",
+                  "id": "6ac4385f-6889-4c93-9001-a2c9ffb6f24c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fms",
+                        "2018-01-01",
+                        "admin-account"
+                      ]
+                    },
+                    "description": "Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager default administrator."
+                  },
+                  "response": [
+                    {
+                      "id": "3d2b9392-e3a7-4772-9642-3f03b1fd8a8a",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"AdminAccount\": \"<string>\",\n  \"RoleStatus\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-3d2b9392-e3a7-4772-9642-3f03b1fd8a8a"
+                    },
+                    {
+                      "id": "81ac7470-38db-4cc1-ba6c-ea9d1f644161",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-81ac7470-38db-4cc1-ba6c-ea9d1f644161"
+                    },
+                    {
+                      "id": "b32847b2-5ca3-49fd-9612-702883b4e31f",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-b32847b2-5ca3-49fd-9612-702883b4e31f"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-6ac4385f-6889-4c93-9001-a2c9ffb6f24c"
+                },
+                {
+                  "name": "Associate Admin Account",
+                  "id": "5dcfa62d-19b8-48ee-afbf-6d3cad01e82d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"AdminAccount\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fms",
+                        "2018-01-01",
+                        "admin-account"
+                      ]
+                    },
+                    "description": "Sets the AWS Firewall Manager administrator account."
+                  },
+                  "response": [
+                    {
+                      "id": "21af150e-211e-48c0-834d-2bd4dbc1fd59",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"AdminAccount\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-21af150e-211e-48c0-834d-2bd4dbc1fd59"
+                    },
+                    {
+                      "id": "f23351ce-5135-43d1-a463-991a743b8f1a",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"AdminAccount\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-f23351ce-5135-43d1-a463-991a743b8f1a"
+                    },
+                    {
+                      "id": "0c940b7e-eba8-482c-a582-5106073d85b1",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"AdminAccount\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-0c940b7e-eba8-482c-a582-5106073d85b1"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-5dcfa62d-19b8-48ee-afbf-6d3cad01e82d"
+                },
+                {
+                  "name": "Disassociate Admin Account",
+                  "id": "5b6abb5b-5ef6-4ec9-8fc8-b4b21befa7c5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fms",
+                        "2018-01-01",
+                        "admin-account"
+                      ]
+                    },
+                    "description": "Disassociates the account that has been set as the AWS Firewall Manager administrator account."
+                  },
+                  "response": [
+                    {
+                      "id": "a993eeed-555a-461d-9bf5-10f16e6e2181",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-a993eeed-555a-461d-9bf5-10f16e6e2181"
+                    },
+                    {
+                      "id": "494db56d-015b-4382-a4db-511d7e59da84",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-494db56d-015b-4382-a4db-511d7e59da84"
+                    },
+                    {
+                      "id": "991dd358-cd08-4c17-9301-a13752e801de",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/admin-account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "admin-account"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-991dd358-cd08-4c17-9301-a13752e801de"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-5b6abb5b-5ef6-4ec9-8fc8-b4b21befa7c5"
+                }
+              ],
+              "id": "078c319f-a3ba-40af-a138-32d99ec88d6a",
+              "createdAt": "2026-06-05T15:03:57.000Z",
+              "updatedAt": "2026-06-05T15:03:57.000Z",
+              "uid": "35240-078c319f-a3ba-40af-a138-32d99ec88d6a"
+            },
+            {
+              "name": "member-account",
+              "item": [
+                {
+                  "name": "List Member Accounts",
+                  "id": "ef439ace-ae3b-4cfa-9769-dbca57bb3d78",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fms/2018-01-01/member-account?nextToken=<string>&maxResults=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fms",
+                        "2018-01-01",
+                        "member-account"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination token.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of accounts to return.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Returns a MemberAccounts object that lists the member accounts in the administrator account's AWS organization."
+                  },
+                  "response": [
+                    {
+                      "id": "cce8bec9-8b9b-4eec-b395-1bc3d98e308c",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/member-account?nextToken=<string>&maxResults=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "member-account"
+                          ],
+                          "query": [
+                            {
+                              "description": "Pagination token.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of accounts to return.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"MemberAccounts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"NextToken\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-cce8bec9-8b9b-4eec-b395-1bc3d98e308c"
+                    },
+                    {
+                      "id": "e20c7392-0ccd-4cf7-aaa4-371f2e700f07",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/member-account?nextToken=<string>&maxResults=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "member-account"
+                          ],
+                          "query": [
+                            {
+                              "description": "Pagination token.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of accounts to return.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-e20c7392-0ccd-4cf7-aaa4-371f2e700f07"
+                    },
+                    {
+                      "id": "f4dfd3d3-af6a-4ee1-9100-29e2ee59fd76",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/member-account?nextToken=<string>&maxResults=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "member-account"
+                          ],
+                          "query": [
+                            {
+                              "description": "Pagination token.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of accounts to return.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-f4dfd3d3-af6a-4ee1-9100-29e2ee59fd76"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-ef439ace-ae3b-4cfa-9769-dbca57bb3d78"
+                }
+              ],
+              "id": "6dd275bb-6358-40cf-9388-223c9229cc37",
+              "createdAt": "2026-06-05T15:03:57.000Z",
+              "updatedAt": "2026-06-05T15:03:57.000Z",
+              "uid": "35240-6dd275bb-6358-40cf-9388-223c9229cc37"
+            },
+            {
+              "name": "resource-set",
+              "item": [
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "List Resource Sets",
+                      "id": "91149678-c5cf-4d93-885b-c337d77d480a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"NextToken\": \"<string>\",\n  \"MaxResults\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/resource-set/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "resource-set",
+                            "list"
+                          ]
+                        },
+                        "description": "Returns an array of ResourceSetSummary objects."
+                      },
+                      "response": [
+                        {
+                          "id": "e518cb29-20f4-4381-b04c-7c9529a57487",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"NextToken\": \"<string>\",\n  \"MaxResults\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/resource-set/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "resource-set",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"ResourceSets\": [\n    {\n      \"Name\": \"<string>\",\n      \"ResourceTypeList\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"Id\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"UpdateToken\": \"<string>\",\n      \"LastUpdateTime\": \"<dateTime>\",\n      \"ResourceSetStatus\": \"OUT_OF_ADMIN_SCOPE\"\n    },\n    {\n      \"Name\": \"<string>\",\n      \"ResourceTypeList\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"Id\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"UpdateToken\": \"<string>\",\n      \"LastUpdateTime\": \"<dateTime>\",\n      \"ResourceSetStatus\": \"ACTIVE\"\n    }\n  ],\n  \"NextToken\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-e518cb29-20f4-4381-b04c-7c9529a57487"
+                        },
+                        {
+                          "id": "b90e2c4b-0f24-4fcf-b766-a2e6fb505e86",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"NextToken\": \"<string>\",\n  \"MaxResults\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/resource-set/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "resource-set",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-b90e2c4b-0f24-4fcf-b766-a2e6fb505e86"
+                        },
+                        {
+                          "id": "a9008865-7029-4288-be88-93ee55562202",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"NextToken\": \"<string>\",\n  \"MaxResults\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/resource-set/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "resource-set",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-a9008865-7029-4288-be88-93ee55562202"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-91149678-c5cf-4d93-885b-c337d77d480a"
+                    }
+                  ],
+                  "id": "f93b0010-bc9c-48d4-9fc2-733792f3b180",
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-f93b0010-bc9c-48d4-9fc2-733792f3b180"
+                },
+                {
+                  "name": "Put Resource Set",
+                  "id": "b737e45b-2538-450b-8223-56d9868e991e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ResourceSet\": {\n    \"Name\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"Id\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"UpdateToken\": \"<string>\",\n    \"LastUpdateTime\": \"<dateTime>\",\n    \"ResourceSetStatus\": \"OUT_OF_ADMIN_SCOPE\"\n  },\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fms/2018-01-01/resource-set",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fms",
+                        "2018-01-01",
+                        "resource-set"
+                      ]
+                    },
+                    "description": "Creates or updates a resource set."
+                  },
+                  "response": [
+                    {
+                      "id": "ea9cc401-42d9-4906-b2a5-e78ddd3895ab",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ResourceSet\": {\n    \"Name\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"Id\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"UpdateToken\": \"<string>\",\n    \"LastUpdateTime\": \"<dateTime>\",\n    \"ResourceSetStatus\": \"OUT_OF_ADMIN_SCOPE\"\n  },\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/resource-set",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "resource-set"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ResourceSet\": {\n    \"Name\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"Id\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"UpdateToken\": \"<string>\",\n    \"LastUpdateTime\": \"<dateTime>\",\n    \"ResourceSetStatus\": \"ACTIVE\"\n  },\n  \"ResourceSetArn\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-ea9cc401-42d9-4906-b2a5-e78ddd3895ab"
+                    },
+                    {
+                      "id": "862120c0-58f2-4ee1-b0b5-4cacfb6d96a8",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ResourceSet\": {\n    \"Name\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"Id\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"UpdateToken\": \"<string>\",\n    \"LastUpdateTime\": \"<dateTime>\",\n    \"ResourceSetStatus\": \"OUT_OF_ADMIN_SCOPE\"\n  },\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/resource-set",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "resource-set"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-862120c0-58f2-4ee1-b0b5-4cacfb6d96a8"
+                    },
+                    {
+                      "id": "067342df-9cbd-4b71-807a-c27df94208f6",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ResourceSet\": {\n    \"Name\": \"<string>\",\n    \"ResourceTypeList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"Id\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"UpdateToken\": \"<string>\",\n    \"LastUpdateTime\": \"<dateTime>\",\n    \"ResourceSetStatus\": \"OUT_OF_ADMIN_SCOPE\"\n  },\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/resource-set",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "resource-set"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-067342df-9cbd-4b71-807a-c27df94208f6"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-b737e45b-2538-450b-8223-56d9868e991e"
+                }
+              ],
+              "id": "c023194e-d959-41fe-9d68-0b4c2bbde838",
+              "createdAt": "2026-06-05T15:03:57.000Z",
+              "updatedAt": "2026-06-05T15:03:57.000Z",
+              "uid": "35240-c023194e-d959-41fe-9d68-0b4c2bbde838"
+            },
+            {
+              "name": "tags",
+              "item": [
+                {
+                  "name": "{resourceArn}",
+                  "item": [
+                    {
+                      "name": "List Tags For Resource",
+                      "id": "16276e53-6772-4286-aad3-b6d32c6d4024",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/tags/:resourceArn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "tags",
+                            ":resourceArn"
+                          ],
+                          "variable": [
+                            {
+                              "id": "938d7e35-4662-4501-83d4-c0252c03cf1d",
+                              "key": "resourceArn",
+                              "value": "<string>",
+                              "description": "(Required) The Amazon Resource Name (ARN) of the resource."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves the list of tags for the specified AWS resource."
+                      },
+                      "response": [
+                        {
+                          "id": "52480bb5-9137-4fa1-97ee-4f2a339a60de",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/tags/:resourceArn",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "tags",
+                                ":resourceArn"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "resourceArn"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-52480bb5-9137-4fa1-97ee-4f2a339a60de"
+                        },
+                        {
+                          "id": "e29ca811-8aae-49e0-a873-4869b6a1fdd7",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/tags/:resourceArn",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "tags",
+                                ":resourceArn"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "resourceArn"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-e29ca811-8aae-49e0-a873-4869b6a1fdd7"
+                        },
+                        {
+                          "id": "18761b3f-c260-4240-92c5-ab19ac75c231",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/tags/:resourceArn",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "tags",
+                                ":resourceArn"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "resourceArn"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-18761b3f-c260-4240-92c5-ab19ac75c231"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-16276e53-6772-4286-aad3-b6d32c6d4024"
+                    },
+                    {
+                      "name": "Tag Resource",
+                      "id": "daf19229-5a10-4b28-9252-a20e5d75f213",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fms/2018-01-01/tags/:resourceArn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fms",
+                            "2018-01-01",
+                            "tags",
+                            ":resourceArn"
+                          ],
+                          "variable": [
+                            {
+                              "id": "bcc0d4c4-c78d-43ce-8eef-8ece9b99eb9a",
+                              "key": "resourceArn",
+                              "value": "<string>",
+                              "description": "(Required) The ARN of the resource."
+                            }
+                          ]
+                        },
+                        "description": "Adds one or more tags to an AWS resource."
+                      },
+                      "response": [
+                        {
+                          "id": "82fc2017-63d9-404e-8457-bb6b77328652",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/tags/:resourceArn",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "tags",
+                                ":resourceArn"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "resourceArn"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-82fc2017-63d9-404e-8457-bb6b77328652"
+                        },
+                        {
+                          "id": "d404e74b-4732-4c14-96c4-b27b19eed73b",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/tags/:resourceArn",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "tags",
+                                ":resourceArn"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "resourceArn"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-d404e74b-4732-4c14-96c4-b27b19eed73b"
+                        },
+                        {
+                          "id": "317ff1b2-4458-4888-8ac9-8ede2131978b",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"TagList\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/fms/2018-01-01/tags/:resourceArn",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fms",
+                                "2018-01-01",
+                                "tags",
+                                ":resourceArn"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "resourceArn"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Message\": \"<string>\",\n  \"Code\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:03:57.000Z",
+                          "updatedAt": "2026-06-05T15:03:57.000Z",
+                          "uid": "35240-317ff1b2-4458-4888-8ac9-8ede2131978b"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:03:57.000Z",
+                      "updatedAt": "2026-06-05T15:03:57.000Z",
+                      "uid": "35240-daf19229-5a10-4b28-9252-a20e5d75f213"
+                    }
+                  ],
+                  "id": "7146ade4-99f2-4ceb-a298-930408fe7993",
+                  "createdAt": "2026-06-05T15:03:57.000Z",
+                  "updatedAt": "2026-06-05T15:03:57.000Z",
+                  "uid": "35240-7146ade4-99f2-4ceb-a298-930408fe7993"
+                }
+              ],
+              "id": "c59a7e87-8587-4113-993f-443c5d83bd89",
+              "createdAt": "2026-06-05T15:03:57.000Z",
+              "updatedAt": "2026-06-05T15:03:57.000Z",
+              "uid": "35240-c59a7e87-8587-4113-993f-443c5d83bd89"
+            }
+          ],
+          "id": "97835ead-a29b-4d67-bc82-d7587ab9a4c0",
+          "createdAt": "2026-06-05T15:03:57.000Z",
+          "updatedAt": "2026-06-05T15:03:57.000Z",
+          "uid": "35240-97835ead-a29b-4d67-bc82-d7587ab9a4c0"
+        }
+      ],
+      "id": "6de449b9-47c7-4b9b-b5aa-02a651644eff",
+      "createdAt": "2026-06-05T15:03:57.000Z",
+      "updatedAt": "2026-06-05T15:03:57.000Z",
+      "uid": "35240-6de449b9-47c7-4b9b-b5aa-02a651644eff"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://fms.{{region}}.amazonaws.com"
+    }
+  ]
+}
