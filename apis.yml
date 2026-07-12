@@ -72,6 +72,14 @@ apis:
       - type: APIReference
         url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
 common:
+  - type: TrustCenter
+    url: security/amazon-firewall-manager-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-firewall-manager-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-firewall-manager-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-firewall-manager-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-firewall-manager/overview
   - type: Arazzo
