@@ -1,183 +1,280 @@
-# Amazon Firewall Manager Spectral Rules
-extends: spectral:oas
+# amazon-firewall-manager — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - servers-expected-domain: 1/1 servers on amazonaws.com
+#   - path-params-casing: camel @ 100% (n=6)
+#   - query-params-casing: camel @ 100% (n=5)
+#   - operationid-casing: camel @ 100% (n=13)
+#   - schema-names-casing: pascal @ 100% (n=18)
+#   - schema-properties-casing: pascal @ 100% (n=52)
+#   - security: global (root) — NOT emitting operation-security-required
+#   - error-schema-defined: ErrorResponse
+#   - operation-documents-400: 100% adherence
+#   - operation-documents-500: 100% adherence
+#   - pagination params observed: ['maxResults', 'nextToken']
+#   - merge: kept 25 existing, added 10 measured, upgraded 0
+#   - added: servers-expected-domain, path-params-casing, query-params-casing, schema-names-casing, schema-properties-casing, security-schemes-defined, error-schema-defined, operation-documents-400, operation-documents-500, no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
   fms-info-contact:
     description: API must include contact information
     severity: warn
-    given: "$.info"
+    given: $.info
     then:
       field: contact
       function: truthy
   fms-info-description:
     description: API must have a description
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: description
       function: truthy
   fms-server-https:
     description: All server URLs must use HTTPS
     severity: error
-    given: "$.servers[*].url"
+    given: $.servers[*].url
     then:
       function: pattern
       functionOptions:
-        match: "^https://"
+        match: ^https://
   fms-operation-summary:
     description: Operations must have a summary
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: summary
       function: truthy
   fms-operation-description:
     description: Operations should have a description
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: description
       function: truthy
   fms-operation-tags:
     description: Operations must have at least one tag
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: tags
       function: truthy
   fms-operation-id:
     description: Operations must have operationId
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: operationId
       function: truthy
   fms-operation-id-camel-case:
     description: operationId should use camelCase
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete].operationId"
+    given: $.paths[*][get,post,put,patch,delete].operationId
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z][a-zA-Z0-9]*$"
+        match: ^[a-z][a-zA-Z0-9]*$
   fms-response-200:
     description: GET and POST operations should define 200 response
     severity: warn
-    given: "$.paths[*][get,post]"
+    given: $.paths[*][get,post]
     then:
       field: responses.200
       function: truthy
   fms-response-400:
     description: Operations should define 400 response
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: responses.400
       function: truthy
   fms-response-500:
     description: Operations should define 500 response
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: responses.500
       function: truthy
   fms-response-404:
     description: Operations accessing resources by ID should define 404
     severity: warn
-    given: "$.paths[*~'\\{[^}]+\\}'][get,put,patch,delete].responses"
+    given: $.paths[*~'\{[^}]+\}'][get,put,patch,delete].responses
     then:
-      field: "404"
+      field: '404'
       function: truthy
   fms-parameter-description:
     description: Parameters must have descriptions
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete].parameters[*]"
+    given: $.paths[*][get,post,put,patch,delete].parameters[*]
     then:
       field: description
       function: truthy
   fms-path-param-required:
     description: Path parameters must be marked as required
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete].parameters[?(@.in=='path')]"
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='path')]
     then:
       field: required
       function: truthy
   fms-schema-description:
     description: Schema components should have descriptions
     severity: warn
-    given: "$.components.schemas[*]"
+    given: $.components.schemas[*]
     then:
       field: description
       function: truthy
   fms-tags-title-case:
     description: Operation tags should use Title Case
     severity: warn
-    given: "$.paths[*][*].tags[*]"
+    given: $.paths[*][*].tags[*]
     then:
       function: pattern
       functionOptions:
-        match: "^[A-Z][a-zA-Z0-9 ]*$"
+        match: ^[A-Z][a-zA-Z0-9 ]*$
   fms-list-operation-prefix:
     description: Collection GET operationIds should start with 'list'
     severity: warn
-    given: "$.paths[*~'[^}]$'].get.operationId"
+    given: $.paths[*~'[^}]$'].get.operationId
     then:
       function: pattern
       functionOptions:
-        match: "^list"
+        match: ^list
   fms-put-policy-request:
     description: PUT policy requests should define a request body
     severity: error
-    given: "$.paths[*].post.requestBody"
+    given: $.paths[*].post.requestBody
     then:
       field: content
       function: truthy
   fms-policy-remediation-documented:
     description: Policies should document RemediationEnabled field in schema
-    message: "Policy schema should include RemediationEnabled property"
+    message: Policy schema should include RemediationEnabled property
     severity: warn
-    given: "$.components.schemas.Policy.properties"
+    given: $.components.schemas.Policy.properties
     then:
       field: RemediationEnabled
       function: truthy
   fms-security-service-type-enum:
     description: SecurityServicePolicyData Type should define allowed enum values
     severity: warn
-    given: "$.components.schemas.SecurityServicePolicyData.properties.Type"
+    given: $.components.schemas.SecurityServicePolicyData.properties.Type
     then:
       field: enum
       function: truthy
   fms-delete-operation:
     description: DELETE operations should have a description
     severity: warn
-    given: "$.paths[*].delete"
+    given: $.paths[*].delete
     then:
       field: description
       function: truthy
   fms-admin-account-documented:
     description: Admin account endpoint should be documented
     severity: info
-    given: "$.paths"
+    given: $.paths
     then:
-      field: "/fms/2018-01-01/admin-account"
+      field: /fms/2018-01-01/admin-account
       function: truthy
   fms-compliance-endpoint-documented:
     description: Compliance endpoint should be documented
     severity: info
-    given: "$.paths"
+    given: $.paths
     then:
-      field: "/fms/2018-01-01/compliance/{policyId}/detail/{memberAccountId}"
+      field: /fms/2018-01-01/compliance/{policyId}/detail/{memberAccountId}
       function: truthy
   fms-resource-set-documented:
     description: Resource set endpoint should be documented
     severity: info
-    given: "$.paths"
+    given: $.paths
     then:
-      field: "/fms/2018-01-01/resource-set"
+      field: /fms/2018-01-01/resource-set
       function: truthy
   fms-schema-properties-defined:
     description: Object schemas should define properties
     severity: warn
-    given: "$.components.schemas[?(@.type=='object')]"
+    given: $.components.schemas[?(@.type=='object')]
     then:
       field: properties
+      function: truthy
+  servers-expected-domain:
+    description: Server URLs should be on the amazonaws.com domain.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: amazonaws\.com
+  path-params-casing:
+    description: Path parameters should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*].parameters[?(@.in=='path')].name
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  query-params-casing:
+    description: Query parameters should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: casing
+      functionOptions:
+        type: camel
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  security-schemes-defined:
+    description: Security schemes should be defined in components.
+    severity: warn
+    given: $.components
+    then:
+      field: securitySchemes
+      function: truthy
+  error-schema-defined:
+    description: A shared error schema (ErrorResponse) should be defined for error payloads.
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: ErrorResponse
+      function: truthy
+  operation-documents-400:
+    description: Operations should document a 400 response (documented on 100% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '400'
+      function: truthy
+  operation-documents-500:
+    description: Operations should document a 500 response (documented on 100% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '500'
+      function: truthy
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
       function: truthy
