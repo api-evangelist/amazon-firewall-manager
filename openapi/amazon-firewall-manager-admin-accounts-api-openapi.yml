@@ -1,0 +1,139 @@
+openapi: 3.1.0
+info:
+  title: AWS Firewall Manager Admin Accounts API
+  description: AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.
+  version: '2018-01-01'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://fms.{region}.amazonaws.com
+  variables:
+    region:
+      default: us-east-1
+security:
+- awsSigV4: []
+tags:
+- name: Admin Accounts
+  description: Firewall Manager administrator account management
+paths:
+  /fms/2018-01-01/admin-account:
+    get:
+      operationId: getAdminAccount
+      summary: Get Admin Account
+      description: Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager default administrator.
+      tags:
+      - Admin Accounts
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAdminAccountResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    AdminAccount: '123456789012'
+                    RoleStatus: READY
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: associateAdminAccount
+      summary: Associate Admin Account
+      description: Sets the AWS Firewall Manager administrator account.
+      tags:
+      - Admin Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                AdminAccount:
+                  type: string
+              required:
+              - AdminAccount
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: disassociateAdminAccount
+      summary: Disassociate Admin Account
+      description: Disassociates the account that has been set as the AWS Firewall Manager administrator account.
+      tags:
+      - Admin Accounts
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    GetAdminAccountResponse:
+      type: object
+      properties:
+        AdminAccount:
+          type: string
+        RoleStatus:
+          type: string
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
+  securitySchemes:
+    awsSigV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication

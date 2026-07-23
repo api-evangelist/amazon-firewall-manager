@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: AWS Firewall Manager Admin Accounts Member Accounts API
+  description: AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.
+  version: '2018-01-01'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://fms.{region}.amazonaws.com
+  variables:
+    region:
+      default: us-east-1
+security:
+- awsSigV4: []
+tags:
+- name: Member Accounts
+  description: Member account association
+paths:
+  /fms/2018-01-01/member-account:
+    get:
+      operationId: listMemberAccounts
+      summary: List Member Accounts
+      description: Returns a MemberAccounts object that lists the member accounts in the administrator account's AWS organization.
+      tags:
+      - Member Accounts
+      parameters:
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token.
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+        description: Maximum number of accounts to return.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMemberAccountsResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    MemberAccounts:
+                    - '123456789012'
+                    - '234567890123'
+                    NextToken: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ListMemberAccountsResponse:
+      type: object
+      properties:
+        MemberAccounts:
+          type: array
+          items:
+            type: string
+        NextToken:
+          type: string
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
+  securitySchemes:
+    awsSigV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication

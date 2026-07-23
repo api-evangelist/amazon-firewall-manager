@@ -1,0 +1,365 @@
+openapi: 3.1.0
+info:
+  title: AWS Firewall Manager Admin Accounts Policies API
+  description: AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.
+  version: '2018-01-01'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://fms.{region}.amazonaws.com
+  variables:
+    region:
+      default: us-east-1
+security:
+- awsSigV4: []
+tags:
+- name: Policies
+  description: Firewall Manager security policies
+paths:
+  /fms/2018-01-01/policies:
+    get:
+      operationId: listPolicies
+      summary: List Policies
+      description: Returns an array of PolicySummary objects.
+      tags:
+      - Policies
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+        description: Maximum number of policies to return.
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPoliciesResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    PolicyList:
+                    - PolicyId: p-abc12345
+                      PolicyName: WAF-Policy-Production
+                      PolicyUpdateToken: 1:abc123
+                      SecurityServicePolicyData:
+                        Type: WAF
+                      ResourceType: AWS::ElasticLoadBalancingV2::LoadBalancer
+                      ExcludeResourceTags: false
+                      RemediationEnabled: true
+                      PolicyArn: arn:aws:fms:us-east-1:123456789012:policy/p-abc12345
+                    NextToken: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: putPolicy
+      summary: Put Policy
+      description: Creates or updates an AWS Firewall Manager policy.
+      tags:
+      - Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutPolicyRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutPolicyResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    Policy:
+                      PolicyId: p-abc12345
+                      PolicyName: WAF-Policy-Production
+                      PolicyUpdateToken: 1:abc123
+                      SecurityServicePolicyData:
+                        Type: WAF
+                      ResourceType: AWS::ElasticLoadBalancingV2::LoadBalancer
+                      ExcludeResourceTags: false
+                      RemediationEnabled: true
+                      PolicyArn: arn:aws:fms:us-east-1:123456789012:policy/p-abc12345
+                    PolicyArn: arn:aws:fms:us-east-1:123456789012:policy/p-abc12345
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /fms/2018-01-01/policies/{policyId}:
+    get:
+      operationId: getPolicy
+      summary: Get Policy
+      description: Returns information about the specified AWS Firewall Manager policy.
+      tags:
+      - Policies
+      parameters:
+      - name: policyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The ID of the policy.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPolicyResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    Policy:
+                      PolicyId: p-abc12345
+                      PolicyName: WAF-Policy-Production
+                      PolicyUpdateToken: 1:abc123
+                      SecurityServicePolicyData:
+                        Type: WAF
+                      ResourceType: AWS::ElasticLoadBalancingV2::LoadBalancer
+                      ExcludeResourceTags: false
+                      RemediationEnabled: true
+                      PolicyArn: arn:aws:fms:us-east-1:123456789012:policy/p-abc12345
+                    PolicyArn: arn:aws:fms:us-east-1:123456789012:policy/p-abc12345
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deletePolicy
+      summary: Delete Policy
+      description: Permanently deletes an AWS Firewall Manager policy.
+      tags:
+      - Policies
+      parameters:
+      - name: policyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The ID of the policy.
+      - name: deleteAllPolicyResources
+        in: query
+        schema:
+          type: boolean
+        description: If True, the request deletes all AWS Firewall Manager-managed internet gateway associations.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    PutPolicyRequest:
+      type: object
+      required:
+      - Policy
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        TagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    GetPolicyResponse:
+      type: object
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        PolicyArn:
+          type: string
+    Policy:
+      type: object
+      description: An AWS Firewall Manager policy that defines security rules and which resources are in scope.
+      properties:
+        PolicyId:
+          type: string
+        PolicyName:
+          type: string
+        PolicyUpdateToken:
+          type: string
+        SecurityServicePolicyData:
+          $ref: '#/components/schemas/SecurityServicePolicyData'
+        ResourceType:
+          type: string
+        ResourceTypeList:
+          type: array
+          items:
+            type: string
+        ResourceTags:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceTag'
+        ExcludeResourceTags:
+          type: boolean
+        RemediationEnabled:
+          type: boolean
+        PolicyArn:
+          type: string
+        IncludeMap:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        ExcludeMap:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+      required:
+      - PolicyName
+      - SecurityServicePolicyData
+      - ResourceType
+      - ExcludeResourceTags
+      - RemediationEnabled
+    Tag:
+      type: object
+      description: A collection of key-value pairs.
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+      required:
+      - Key
+      - Value
+    SecurityServicePolicyData:
+      type: object
+      description: Details about the security service used to protect the resources.
+      properties:
+        Type:
+          type: string
+          enum:
+          - WAF
+          - WAFV2
+          - SHIELD_ADVANCED
+          - SECURITY_GROUPS_COMMON
+          - SECURITY_GROUPS_CONTENT_AUDIT
+          - SECURITY_GROUPS_USAGE_AUDIT
+          - NETWORK_FIREWALL
+          - DNS_FIREWALL
+          - THIRD_PARTY_FIREWALL
+          - IMPORT_NETWORK_FIREWALL
+        ManagedServiceData:
+          type: string
+        PolicyOption:
+          type: object
+      required:
+      - Type
+    PutPolicyResponse:
+      type: object
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        PolicyArn:
+          type: string
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
+    ResourceTag:
+      type: object
+      description: A tag used to target resources in scope of a Firewall Manager policy.
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+      required:
+      - Key
+    ListPoliciesResponse:
+      type: object
+      properties:
+        PolicyList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Policy'
+        NextToken:
+          type: string
+  securitySchemes:
+    awsSigV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication

@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: AWS Firewall Manager Admin Accounts Compliance API
+  description: AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.
+  version: '2018-01-01'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://fms.{region}.amazonaws.com
+  variables:
+    region:
+      default: us-east-1
+security:
+- awsSigV4: []
+tags:
+- name: Compliance
+  description: Compliance status and violations
+paths:
+  /fms/2018-01-01/compliance/{policyId}/detail/{memberAccountId}:
+    get:
+      operationId: getComplianceDetail
+      summary: Get Compliance Detail
+      description: Returns detailed compliance information about the specified member account.
+      tags:
+      - Compliance
+      parameters:
+      - name: policyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The ID of the policy.
+      - name: memberAccountId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The AWS account ID.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetComplianceDetailResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    PolicyComplianceDetail:
+                      PolicyId: p-abc12345
+                      MemberAccount: '123456789012'
+                      Violators: []
+                      EvaluationLimitExceeded: false
+                      ExpiredAt: '2026-04-19T00:00:00Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
+    GetComplianceDetailResponse:
+      type: object
+      properties:
+        PolicyComplianceDetail:
+          type: object
+  securitySchemes:
+    awsSigV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication
