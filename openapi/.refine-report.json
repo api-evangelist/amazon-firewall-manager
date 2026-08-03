@@ -1,0 +1,22 @@
+{
+  "provider": "amazon-firewall-manager",
+  "sources": [
+    "amazon-firewall-manager-admin-accounts-api-openapi.yml",
+    "amazon-firewall-manager-compliance-api-openapi.yml",
+    "amazon-firewall-manager-member-accounts-api-openapi.yml",
+    "amazon-firewall-manager-policies-api-openapi.yml",
+    "amazon-firewall-manager-resources-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-firewall-manager-admin-accounts-api-openapi.yml",
+    "amazon-firewall-manager-compliance-api-openapi.yml",
+    "amazon-firewall-manager-member-accounts-api-openapi.yml",
+    "amazon-firewall-manager-policies-api-openapi.yml",
+    "amazon-firewall-manager-resources-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
