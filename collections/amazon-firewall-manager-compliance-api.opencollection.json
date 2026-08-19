@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Firewall Manager Admin Accounts Compliance API",
+    "version": "2018-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Compliance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Compliance Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/compliance/:policyId/detail/:memberAccountId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy."
+              },
+              {
+                "name": "memberAccountId",
+                "value": "",
+                "type": "path",
+                "description": "The AWS account ID."
+              }
+            ]
+          },
+          "docs": "Returns detailed compliance information about the specified member account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

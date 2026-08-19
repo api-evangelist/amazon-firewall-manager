@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Firewall Manager Admin Accounts Resources API",
+    "version": "2018-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Put Resource Set",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/resource-set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a resource set."
+        },
+        {
+          "info": {
+            "name": "List Resource Sets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/resource-set/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns an array of ResourceSetSummary objects."
+        },
+        {
+          "info": {
+            "name": "List Tags For Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/tags/:resourceArn",
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The Amazon Resource Name (ARN) of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieves the list of tags for the specified AWS resource."
+        },
+        {
+          "info": {
+            "name": "Tag Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/tags/:resourceArn",
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The ARN of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds one or more tags to an AWS resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

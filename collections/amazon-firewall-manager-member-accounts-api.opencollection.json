@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Firewall Manager Admin Accounts Member Accounts API",
+    "version": "2018-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Member Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Member Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/member-account",
+            "params": [
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of accounts to return."
+              }
+            ]
+          },
+          "docs": "Returns a MemberAccounts object that lists the member accounts in the administrator account's AWS organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

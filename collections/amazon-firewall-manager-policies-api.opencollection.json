@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Firewall Manager Admin Accounts Policies API",
+    "version": "2018-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/policies",
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of policies to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token."
+              }
+            ]
+          },
+          "docs": "Returns an array of PolicySummary objects."
+        },
+        {
+          "info": {
+            "name": "Put Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/policies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates an AWS Firewall Manager policy."
+        },
+        {
+          "info": {
+            "name": "Get Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/policies/:policyId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy."
+              }
+            ]
+          },
+          "docs": "Returns information about the specified AWS Firewall Manager policy."
+        },
+        {
+          "info": {
+            "name": "Delete Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://fms.{region}.amazonaws.com/fms/2018-01-01/policies/:policyId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy."
+              },
+              {
+                "name": "deleteAllPolicyResources",
+                "value": "",
+                "type": "query",
+                "description": "If True, the request deletes all AWS Firewall Manager-managed internet gateway associations."
+              }
+            ]
+          },
+          "docs": "Permanently deletes an AWS Firewall Manager policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
