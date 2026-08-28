@@ -10,8 +10,14 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: firewallManagerApi
-  url: ../openapi/amazon-firewall-manager-openapi.yml
+- name: complianceApi
+  url: ../openapi/amazon-firewall-manager-compliance-api-openapi.yml
+  type: openapi
+- name: memberAccountsApi
+  url: ../openapi/amazon-firewall-manager-member-accounts-api-openapi.yml
+  type: openapi
+- name: policiesApi
+  url: ../openapi/amazon-firewall-manager-policies-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: audit-policy-compliance

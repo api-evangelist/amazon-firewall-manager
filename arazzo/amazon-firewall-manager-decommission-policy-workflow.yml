@@ -11,8 +11,8 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: firewallManagerApi
-  url: ../openapi/amazon-firewall-manager-openapi.yml
+- name: policiesApi
+  url: ../openapi/amazon-firewall-manager-policies-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: decommission-policy

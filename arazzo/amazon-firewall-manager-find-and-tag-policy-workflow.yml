@@ -10,8 +10,11 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: firewallManagerApi
-  url: ../openapi/amazon-firewall-manager-openapi.yml
+- name: policiesApi
+  url: ../openapi/amazon-firewall-manager-policies-api-openapi.yml
+  type: openapi
+- name: resourcesApi
+  url: ../openapi/amazon-firewall-manager-resources-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: find-and-tag-policy
