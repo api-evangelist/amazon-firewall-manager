@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: AWS Firewall Manager Admin Accounts Policies API
   description: AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.
@@ -225,6 +225,47 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ResourceTag:
+      type: object
+      description: A tag used to target resources in scope of a Firewall Manager policy.
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+      required:
+      - Key
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
+    SecurityServicePolicyData:
+      type: object
+      description: Details about the security service used to protect the resources.
+      properties:
+        Type:
+          type: string
+          enum:
+          - WAF
+          - WAFV2
+          - SHIELD_ADVANCED
+          - SECURITY_GROUPS_COMMON
+          - SECURITY_GROUPS_CONTENT_AUDIT
+          - SECURITY_GROUPS_USAGE_AUDIT
+          - NETWORK_FIREWALL
+          - DNS_FIREWALL
+          - THIRD_PARTY_FIREWALL
+          - IMPORT_NETWORK_FIREWALL
+        ManagedServiceData:
+          type: string
+        PolicyOption:
+          type: object
+      required:
+      - Type
     PutPolicyRequest:
       type: object
       required:
@@ -236,7 +277,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
+    ListPoliciesResponse:
+      type: object
+      properties:
+        PolicyList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Policy'
+        NextToken:
+          type: string
     GetPolicyResponse:
+      type: object
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        PolicyArn:
+          type: string
+    PutPolicyResponse:
       type: object
       properties:
         Policy:
@@ -300,63 +357,6 @@ components:
       required:
       - Key
       - Value
-    SecurityServicePolicyData:
-      type: object
-      description: Details about the security service used to protect the resources.
-      properties:
-        Type:
-          type: string
-          enum:
-          - WAF
-          - WAFV2
-          - SHIELD_ADVANCED
-          - SECURITY_GROUPS_COMMON
-          - SECURITY_GROUPS_CONTENT_AUDIT
-          - SECURITY_GROUPS_USAGE_AUDIT
-          - NETWORK_FIREWALL
-          - DNS_FIREWALL
-          - THIRD_PARTY_FIREWALL
-          - IMPORT_NETWORK_FIREWALL
-        ManagedServiceData:
-          type: string
-        PolicyOption:
-          type: object
-      required:
-      - Type
-    PutPolicyResponse:
-      type: object
-      properties:
-        Policy:
-          $ref: '#/components/schemas/Policy'
-        PolicyArn:
-          type: string
-    ErrorResponse:
-      type: object
-      description: Standard error response from the Firewall Manager API.
-      properties:
-        Message:
-          type: string
-        Code:
-          type: string
-    ResourceTag:
-      type: object
-      description: A tag used to target resources in scope of a Firewall Manager policy.
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
-      required:
-      - Key
-    ListPoliciesResponse:
-      type: object
-      properties:
-        PolicyList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Policy'
-        NextToken:
-          type: string
   securitySchemes:
     awsSigV4:
       type: apiKey
