@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS Firewall Manager Admin Accounts Member Accounts API
+  title: AWS Firewall Manager Member Accounts API
   description: AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.
   version: '2018-01-01'
   contact:
@@ -70,14 +70,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      description: Standard error response from the Firewall Manager API.
-      properties:
-        Message:
-          type: string
-        Code:
-          type: string
     ListMemberAccountsResponse:
       type: object
       properties:
@@ -86,6 +78,14 @@ components:
           items:
             type: string
         NextToken:
+          type: string
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
           type: string
   securitySchemes:
     awsSigV4:

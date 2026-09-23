@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS Firewall Manager Admin Accounts Resources API
+  title: AWS Firewall Manager Resources API
   description: AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.
   version: '2018-01-01'
   contact:
@@ -202,6 +202,15 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ListResourceSetsResponse:
+      type: object
+      properties:
+        ResourceSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSet'
+        NextToken:
+          type: string
     PutResourceSetRequest:
       type: object
       required:
@@ -209,6 +218,20 @@ components:
       properties:
         ResourceSet:
           $ref: '#/components/schemas/ResourceSet'
+        TagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    PutResourceSetResponse:
+      type: object
+      properties:
+        ResourceSet:
+          $ref: '#/components/schemas/ResourceSet'
+        ResourceSetArn:
+          type: string
+    ListTagsForResourceResponse:
+      type: object
+      properties:
         TagList:
           type: array
           items:
@@ -248,22 +271,6 @@ components:
       required:
       - Name
       - ResourceTypeList
-    ListResourceSetsResponse:
-      type: object
-      properties:
-        ResourceSets:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSet'
-        NextToken:
-          type: string
-    PutResourceSetResponse:
-      type: object
-      properties:
-        ResourceSet:
-          $ref: '#/components/schemas/ResourceSet'
-        ResourceSetArn:
-          type: string
     Tag:
       type: object
       description: A collection of key-value pairs.
@@ -275,13 +282,6 @@ components:
       required:
       - Key
       - Value
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        TagList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
   securitySchemes:
     awsSigV4:
       type: apiKey

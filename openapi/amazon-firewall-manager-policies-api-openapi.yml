@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS Firewall Manager Admin Accounts Policies API
+  title: AWS Firewall Manager Policies API
   description: AWS Firewall Manager is a security management service that enables you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.
   version: '2018-01-01'
   contact:
@@ -225,23 +225,12 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ResourceTag:
+    GetPolicyResponse:
       type: object
-      description: A tag used to target resources in scope of a Firewall Manager policy.
       properties:
-        Key:
-          type: string
-        Value:
-          type: string
-      required:
-      - Key
-    ErrorResponse:
-      type: object
-      description: Standard error response from the Firewall Manager API.
-      properties:
-        Message:
-          type: string
-        Code:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        PolicyArn:
           type: string
     SecurityServicePolicyData:
       type: object
@@ -266,40 +255,6 @@ components:
           type: object
       required:
       - Type
-    PutPolicyRequest:
-      type: object
-      required:
-      - Policy
-      properties:
-        Policy:
-          $ref: '#/components/schemas/Policy'
-        TagList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
-    ListPoliciesResponse:
-      type: object
-      properties:
-        PolicyList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Policy'
-        NextToken:
-          type: string
-    GetPolicyResponse:
-      type: object
-      properties:
-        Policy:
-          $ref: '#/components/schemas/Policy'
-        PolicyArn:
-          type: string
-    PutPolicyResponse:
-      type: object
-      properties:
-        Policy:
-          $ref: '#/components/schemas/Policy'
-        PolicyArn:
-          type: string
     Policy:
       type: object
       description: An AWS Firewall Manager policy that defines security rules and which resources are in scope.
@@ -346,6 +301,30 @@ components:
       - ResourceType
       - ExcludeResourceTags
       - RemediationEnabled
+    PutPolicyResponse:
+      type: object
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        PolicyArn:
+          type: string
+    ListPoliciesResponse:
+      type: object
+      properties:
+        PolicyList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Policy'
+        NextToken:
+          type: string
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
     Tag:
       type: object
       description: A collection of key-value pairs.
@@ -357,6 +336,27 @@ components:
       required:
       - Key
       - Value
+    ResourceTag:
+      type: object
+      description: A tag used to target resources in scope of a Firewall Manager policy.
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+      required:
+      - Key
+    PutPolicyRequest:
+      type: object
+      required:
+      - Policy
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        TagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
   securitySchemes:
     awsSigV4:
       type: apiKey

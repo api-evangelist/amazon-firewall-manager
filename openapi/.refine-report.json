@@ -1,11 +1,7 @@
 {
   "provider": "amazon-firewall-manager",
   "sources": [
-    "amazon-firewall-manager-admin-accounts-api-openapi.yml",
-    "amazon-firewall-manager-compliance-api-openapi.yml",
-    "amazon-firewall-manager-member-accounts-api-openapi.yml",
-    "amazon-firewall-manager-policies-api-openapi.yml",
-    "amazon-firewall-manager-resources-api-openapi.yml"
+    "_original/amazon-firewall-manager-openapi.yml"
   ],
   "outputs": [
     "amazon-firewall-manager-admin-accounts-api-openapi.yml",
@@ -18,7 +14,15 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-firewall-manager-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-firewall-manager-admin-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-firewall-manager-compliance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-firewall-manager-member-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-firewall-manager-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-firewall-manager-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
