@@ -225,13 +225,17 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    PutPolicyResponse:
+    Tag:
       type: object
+      description: A collection of key-value pairs.
       properties:
-        Policy:
-          $ref: '#/components/schemas/Policy'
-        PolicyArn:
+        Key:
           type: string
+        Value:
+          type: string
+      required:
+      - Key
+      - Value
     ResourceTag:
       type: object
       description: A tag used to target resources in scope of a Firewall Manager policy.
@@ -242,6 +246,71 @@ components:
           type: string
       required:
       - Key
+    SecurityServicePolicyData:
+      type: object
+      description: Details about the security service used to protect the resources.
+      properties:
+        Type:
+          type: string
+          enum:
+          - WAF
+          - WAFV2
+          - SHIELD_ADVANCED
+          - SECURITY_GROUPS_COMMON
+          - SECURITY_GROUPS_CONTENT_AUDIT
+          - SECURITY_GROUPS_USAGE_AUDIT
+          - NETWORK_FIREWALL
+          - DNS_FIREWALL
+          - THIRD_PARTY_FIREWALL
+          - IMPORT_NETWORK_FIREWALL
+        ManagedServiceData:
+          type: string
+        PolicyOption:
+          type: object
+      required:
+      - Type
+    ListPoliciesResponse:
+      type: object
+      properties:
+        PolicyList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Policy'
+        NextToken:
+          type: string
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
+    PutPolicyRequest:
+      type: object
+      required:
+      - Policy
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        TagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    PutPolicyResponse:
+      type: object
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        PolicyArn:
+          type: string
+    GetPolicyResponse:
+      type: object
+      properties:
+        Policy:
+          $ref: '#/components/schemas/Policy'
+        PolicyArn:
+          type: string
     Policy:
       type: object
       description: An AWS Firewall Manager policy that defines security rules and which resources are in scope.
@@ -288,75 +357,6 @@ components:
       - ResourceType
       - ExcludeResourceTags
       - RemediationEnabled
-    ListPoliciesResponse:
-      type: object
-      properties:
-        PolicyList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Policy'
-        NextToken:
-          type: string
-    GetPolicyResponse:
-      type: object
-      properties:
-        Policy:
-          $ref: '#/components/schemas/Policy'
-        PolicyArn:
-          type: string
-    SecurityServicePolicyData:
-      type: object
-      description: Details about the security service used to protect the resources.
-      properties:
-        Type:
-          type: string
-          enum:
-          - WAF
-          - WAFV2
-          - SHIELD_ADVANCED
-          - SECURITY_GROUPS_COMMON
-          - SECURITY_GROUPS_CONTENT_AUDIT
-          - SECURITY_GROUPS_USAGE_AUDIT
-          - NETWORK_FIREWALL
-          - DNS_FIREWALL
-          - THIRD_PARTY_FIREWALL
-          - IMPORT_NETWORK_FIREWALL
-        ManagedServiceData:
-          type: string
-        PolicyOption:
-          type: object
-      required:
-      - Type
-    ErrorResponse:
-      type: object
-      description: Standard error response from the Firewall Manager API.
-      properties:
-        Message:
-          type: string
-        Code:
-          type: string
-    Tag:
-      type: object
-      description: A collection of key-value pairs.
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
-      required:
-      - Key
-      - Value
-    PutPolicyRequest:
-      type: object
-      required:
-      - Policy
-      properties:
-        Policy:
-          $ref: '#/components/schemas/Policy'
-        TagList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
   securitySchemes:
     awsSigV4:
       type: apiKey

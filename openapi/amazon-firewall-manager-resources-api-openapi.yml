@@ -202,6 +202,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Tag:
+      type: object
+      description: A collection of key-value pairs.
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+      required:
+      - Key
+      - Value
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        TagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
     ResourceSet:
       type: object
       description: A set of resources to include in a Firewall Manager policy.
@@ -238,39 +256,6 @@ components:
             $ref: '#/components/schemas/ResourceSet'
         NextToken:
           type: string
-    PutResourceSetResponse:
-      type: object
-      properties:
-        ResourceSet:
-          $ref: '#/components/schemas/ResourceSet'
-        ResourceSetArn:
-          type: string
-    ErrorResponse:
-      type: object
-      description: Standard error response from the Firewall Manager API.
-      properties:
-        Message:
-          type: string
-        Code:
-          type: string
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        TagList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
-    Tag:
-      type: object
-      description: A collection of key-value pairs.
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
-      required:
-      - Key
-      - Value
     PutResourceSetRequest:
       type: object
       required:
@@ -282,6 +267,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
+    PutResourceSetResponse:
+      type: object
+      properties:
+        ResourceSet:
+          $ref: '#/components/schemas/ResourceSet'
+        ResourceSetArn:
+          type: string
   securitySchemes:
     awsSigV4:
       type: apiKey
