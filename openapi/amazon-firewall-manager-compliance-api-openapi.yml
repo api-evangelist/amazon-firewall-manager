@@ -80,6 +80,11 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    GetComplianceDetailResponse:
+      type: object
+      properties:
+        PolicyComplianceDetail:
+          type: object
     ErrorResponse:
       type: object
       description: Standard error response from the Firewall Manager API.
@@ -88,11 +93,6 @@ components:
           type: string
         Code:
           type: string
-    GetComplianceDetailResponse:
-      type: object
-      properties:
-        PolicyComplianceDetail:
-          type: object
   securitySchemes:
     awsSigV4:
       type: apiKey

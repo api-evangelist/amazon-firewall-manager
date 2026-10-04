@@ -116,13 +116,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    GetAdminAccountResponse:
-      type: object
-      properties:
-        AdminAccount:
-          type: string
-        RoleStatus:
-          type: string
     ErrorResponse:
       type: object
       description: Standard error response from the Firewall Manager API.
@@ -130,6 +123,13 @@ components:
         Message:
           type: string
         Code:
+          type: string
+    GetAdminAccountResponse:
+      type: object
+      properties:
+        AdminAccount:
+          type: string
+        RoleStatus:
           type: string
   securitySchemes:
     awsSigV4:

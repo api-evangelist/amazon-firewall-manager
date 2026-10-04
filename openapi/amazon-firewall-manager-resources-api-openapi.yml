@@ -202,24 +202,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Tag:
-      type: object
-      description: A collection of key-value pairs.
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
-      required:
-      - Key
-      - Value
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        TagList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
     ResourceSet:
       type: object
       description: A set of resources to include in a Firewall Manager policy.
@@ -247,14 +229,12 @@ components:
       required:
       - Name
       - ResourceTypeList
-    ListResourceSetsResponse:
+    PutResourceSetResponse:
       type: object
       properties:
-        ResourceSets:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSet'
-        NextToken:
+        ResourceSet:
+          $ref: '#/components/schemas/ResourceSet'
+        ResourceSetArn:
           type: string
     PutResourceSetRequest:
       type: object
@@ -267,6 +247,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
+    Tag:
+      type: object
+      description: A collection of key-value pairs.
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+      required:
+      - Key
+      - Value
     ErrorResponse:
       type: object
       description: Standard error response from the Firewall Manager API.
@@ -275,12 +266,21 @@ components:
           type: string
         Code:
           type: string
-    PutResourceSetResponse:
+    ListTagsForResourceResponse:
       type: object
       properties:
-        ResourceSet:
-          $ref: '#/components/schemas/ResourceSet'
-        ResourceSetArn:
+        TagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    ListResourceSetsResponse:
+      type: object
+      properties:
+        ResourceSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSet'
+        NextToken:
           type: string
   securitySchemes:
     awsSigV4:
