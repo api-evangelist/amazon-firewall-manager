@@ -1,0 +1,36 @@
+slug: amazon-firewall-manager
+provider: Amazon Firewall Manager
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Policies
+  spec_file: amazon-firewall-manager-policies-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.82
+  evidence: '"putPolicy  Put Policy" ... "centrally configure and manage firewall rules across your accounts
+    and applications" to "bring new applications and resources into compliance with security policies"'
+  reason: Operations create, read and delete security (firewall) policies applied across an AWS organisation
+    — squarely cybersecurity control management. Left at L1 because the surface spans policy governance
+    and security-architecture enforcement without naming one sub-capability.
+- tag: Compliance
+  spec_file: amazon-firewall-manager-compliance-api-openapi.yml
+  capability_id: BC-620.10
+  capability_id_l1: BC-620
+  capability_name: Security Strategy & Governance Management
+  confidence: 0.7
+  evidence: getComplianceDetail — GET /fms/2018-01-01/compliance/{policyId}/detail/{memberAccountId};
+    'bring new applications and resources into compliance with security policies'
+  reason: Reports whether member accounts' resources comply with centrally defined firewall security policies
+    — security policy/GRC governance, not general regulatory compliance.

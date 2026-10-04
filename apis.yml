@@ -294,6 +294,9 @@ apis:
   - type: APIReference
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
 common:
+  - type: CapabilityMap
+    url: capabilities/amazon-firewall-manager-capability-edges.yml
+    name: Amazon Firewall Manager Business Capability Map
   - type: AgenticAccess
     url: agentic-access/amazon-firewall-manager-agentic-access.yml
   - type: TrustCenter
