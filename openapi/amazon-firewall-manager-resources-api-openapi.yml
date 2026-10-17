@@ -202,6 +202,13 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        TagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
     ResourceSet:
       type: object
       description: A set of resources to include in a Firewall Manager policy.
@@ -236,6 +243,15 @@ components:
           $ref: '#/components/schemas/ResourceSet'
         ResourceSetArn:
           type: string
+    ListResourceSetsResponse:
+      type: object
+      properties:
+        ResourceSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSet'
+        NextToken:
+          type: string
     PutResourceSetRequest:
       type: object
       required:
@@ -247,6 +263,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
     Tag:
       type: object
       description: A collection of key-value pairs.
@@ -258,30 +282,6 @@ components:
       required:
       - Key
       - Value
-    ErrorResponse:
-      type: object
-      description: Standard error response from the Firewall Manager API.
-      properties:
-        Message:
-          type: string
-        Code:
-          type: string
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        TagList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
-    ListResourceSetsResponse:
-      type: object
-      properties:
-        ResourceSets:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSet'
-        NextToken:
-          type: string
   securitySchemes:
     awsSigV4:
       type: apiKey

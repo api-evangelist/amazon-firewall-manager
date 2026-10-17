@@ -70,6 +70,14 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Standard error response from the Firewall Manager API.
+      properties:
+        Message:
+          type: string
+        Code:
+          type: string
     ListMemberAccountsResponse:
       type: object
       properties:
@@ -78,14 +86,6 @@ components:
           items:
             type: string
         NextToken:
-          type: string
-    ErrorResponse:
-      type: object
-      description: Standard error response from the Firewall Manager API.
-      properties:
-        Message:
-          type: string
-        Code:
           type: string
   securitySchemes:
     awsSigV4:
