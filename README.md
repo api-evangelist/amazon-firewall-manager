@@ -1,4 +1,4 @@
-# Amazon Firewall Manager (amazon-firewall-manager)
+# Amazon Firewall Manager
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,91 +66,199 @@
 
 AWS Firewall Manager is a security management service that allows you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations. It makes it easier to bring new applications and resources into compliance with security policies.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/apis.yml)
+**Areas:** AWS · Compliance · Firewall · Network Security · Security
 
-## Scope
+## Amazon Firewall Manager on APIs.io
 
-- **Type:** Index
+Everything profiled for Amazon Firewall Manager is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-firewall-manager/](https://apis.io/providers/amazon-firewall-manager/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- AWS
-- Compliance
-- Firewall
-- Network Security
-- Security
+- [Amazon Firewall Manager Admin Accounts API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-admin-accounts-api/) — Firewall Manager administrator account management
+- [Amazon Firewall Manager Compliance API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-compliance-api/) — Compliance status and violations
+- [Amazon Firewall Manager Member Accounts API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-member-accounts-api/) — Member account association
+- [Amazon Firewall Manager Policies API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-policies-api/) — Firewall Manager security policies
+- [Amazon Firewall Manager Resources API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-resources-api/) — Resource sets and tags
+- [Amazon Firewall Manager Firewall Manager Apps List API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-apps-list-api/) — The Firewall Manager Apps List API from Amazon Firewall Manager — 4 operation(s) for firewall manager apps list.
+- [Amazon Firewall Manager Firewall Manager Notification Channel API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-notification-channel-api/) — The Firewall Manager Notification Channel API from Amazon Firewall Manager — 3 operation(s) for firewall manager notification channel.
+- [Amazon Firewall Manager Firewall Manager Operations API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-operations-api/) — The Firewall Manager Operations API from Amazon Firewall Manager — 13 operation(s) for firewall manager operations.
+- [Amazon Firewall Manager Firewall Manager Protocols List API](https://apis.io/apis/amazon-firewall-manager/amazon-firewall-manager-protocols-list-api/) — The Firewall Manager Protocols List API from Amazon Firewall Manager — 4 operation(s) for firewall manager protocols list.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Arazzo workflows (8)
 
-### AWS Firewall Manager API
+Multi-step workflows that chain operations into a business task.
 
-The AWS Firewall Manager API provides programmatic access to create and manage security policies, compliance status, and protection configurations for AWS WAF, Shield, and VPC security groups across your organization.
+- [Amazon Firewall Manager Audit Policy Compliance](https://apis.io/arazzos/amazon-firewall-manager/amazon-firewall-manager-audit-policy-compliance-workflow/)
+- [Amazon Firewall Manager Create And Tag Resource Set](https://apis.io/arazzos/amazon-firewall-manager/amazon-firewall-manager-create-and-tag-resource-set-workflow/)
+- [Amazon Firewall Manager Create And Verify Policy](https://apis.io/arazzos/amazon-firewall-manager/amazon-firewall-manager-create-and-verify-policy-workflow/)
+- [Amazon Firewall Manager Decommission Policy](https://apis.io/arazzos/amazon-firewall-manager/amazon-firewall-manager-decommission-policy-workflow/)
+- [Amazon Firewall Manager Find And Tag Policy](https://apis.io/arazzos/amazon-firewall-manager/amazon-firewall-manager-find-and-tag-policy-workflow/)
+- [Amazon Firewall Manager Inventory And Tag Resource Set](https://apis.io/arazzos/amazon-firewall-manager/amazon-firewall-manager-inventory-and-tag-resource-set-workflow/)
+- [Amazon Firewall Manager Onboard Admin Account](https://apis.io/arazzos/amazon-firewall-manager/amazon-firewall-manager-onboard-admin-account-workflow/)
+- [Amazon Firewall Manager Resource Set Driven Policy](https://apis.io/arazzos/amazon-firewall-manager/amazon-firewall-manager-resource-set-driven-policy-workflow/)
 
-- **Human URL:** [https://aws.amazon.com/firewall-manager/](https://aws.amazon.com/firewall-manager/)
-- **Base URL:** `https://fms.amazonaws.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Firewall Management
-- Network Security
-- Security
+- [Amazon Firewall Manager Agentic Access](https://apis.io/agentic-access/amazon-firewall-manager/amazon-firewall-manager-agentic-access/)
 
-#### Properties
+#### JSON Schema (5)
 
-- [Documentation](https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html)
-- [OpenAPI](openapi/amazon-firewall-manager-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/amazon-firewall-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-firewall-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/amazon-firewall-manager-policy-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/amazon-firewall-manager-compliance-violator-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/amazon-firewall-manager-resource-set-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/amazon-firewall-manager-security-service-policy-data-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/amazon-firewall-manager-tag-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/amazon-firewall-manager-policy-structure.json)
-- [JSON Structure](json-structure/amazon-firewall-manager-compliance-violator-structure.json)
-- [JSON Structure](json-structure/amazon-firewall-manager-resource-set-structure.json)
-- [JSON Structure](json-structure/amazon-firewall-manager-security-service-policy-data-structure.json)
-- [JSON Structure](json-structure/amazon-firewall-manager-tag-structure.json)
-- [Example](examples/amazon-firewall-manager-policy-example.json)
-- [Example](examples/amazon-firewall-manager-compliance-violator-example.json)
-- [Example](examples/amazon-firewall-manager-resource-set-example.json)
-- [Example](examples/amazon-firewall-manager-security-service-policy-data-example.json)
-- [Example](examples/amazon-firewall-manager-tag-example.json)
-- [Getting Started](https://aws.amazon.com/firewall-manager/getting-started/)
-- [Pricing](https://aws.amazon.com/firewall-manager/pricing/)
-- [F A Q](https://aws.amazon.com/firewall-manager/faqs/)
-- [API Reference](https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html)
+The data models the API reads and writes.
 
-## Common Properties
+- [ComplianceViolator](https://apis.io/schemas/amazon-firewall-manager/amazon-firewall-manager-compliance-violator/)
+- [Policy](https://apis.io/schemas/amazon-firewall-manager/amazon-firewall-manager-policy/)
+- [ResourceSet](https://apis.io/schemas/amazon-firewall-manager/amazon-firewall-manager-resource-set/)
+- [SecurityServicePolicyData](https://apis.io/schemas/amazon-firewall-manager/amazon-firewall-manager-security-service-policy-data/)
+- [Tag](https://apis.io/schemas/amazon-firewall-manager/amazon-firewall-manager-tag/)
 
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [Portal](https://aws.amazon.com/firewall-manager/)
+#### JSON Structure (5)
+
+Data models expressed in JSON Structure.
+
+- [Amazon Firewall Manager Compliance Violator Structure](https://apis.io/json-structure/amazon-firewall-manager/amazon-firewall-manager-compliance-violator-structure/)
+- [Amazon Firewall Manager Policy Structure](https://apis.io/json-structure/amazon-firewall-manager/amazon-firewall-manager-policy-structure/)
+- [Amazon Firewall Manager Resource Set Structure](https://apis.io/json-structure/amazon-firewall-manager/amazon-firewall-manager-resource-set-structure/)
+- [Amazon Firewall Manager Security Service Policy Data Structure](https://apis.io/json-structure/amazon-firewall-manager/amazon-firewall-manager-security-service-policy-data-structure/)
+- [Amazon Firewall Manager Tag Structure](https://apis.io/json-structure/amazon-firewall-manager/amazon-firewall-manager-tag-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Firewall Manager Context](https://apis.io/jsonld/amazon-firewall-manager/amazon-firewall-manager-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Firewall Manager Vocabulary](https://apis.io/vocabularies/amazon-firewall-manager/amazon-firewall-manager-vocabulary/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Amazon Firewall Manager Compliance Violator Example](https://apis.io/examples/amazon-firewall-manager/amazon-firewall-manager-compliance-violator-example/)
+- [Amazon Firewall Manager Policy Example](https://apis.io/examples/amazon-firewall-manager/amazon-firewall-manager-policy-example/)
+- [Amazon Firewall Manager Resource Set Example](https://apis.io/examples/amazon-firewall-manager/amazon-firewall-manager-resource-set-example/)
+- [Amazon Firewall Manager Security Service Policy Data Example](https://apis.io/examples/amazon-firewall-manager/amazon-firewall-manager-security-service-policy-data-example/)
+- [Amazon Firewall Manager Tag Example](https://apis.io/examples/amazon-firewall-manager/amazon-firewall-manager-tag-example/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [AWS Firewall Manager API](https://apis.io/collections/amazon-firewall-manager/open-amazon-firewall-manager/)
+- [AWS Firewall Manager Admin Accounts API](https://apis.io/collections/amazon-firewall-manager/open-amazon-firewall-manager-admin-accounts-api/)
+- [AWS Firewall Manager Admin Accounts Compliance API](https://apis.io/collections/amazon-firewall-manager/open-amazon-firewall-manager-compliance-api/)
+- [AWS Firewall Manager Admin Accounts Member Accounts API](https://apis.io/collections/amazon-firewall-manager/open-amazon-firewall-manager-member-accounts-api/)
+- [AWS Firewall Manager Admin Accounts Policies API](https://apis.io/collections/amazon-firewall-manager/open-amazon-firewall-manager-policies-api/)
+- [AWS Firewall Manager Admin Accounts Resources API](https://apis.io/collections/amazon-firewall-manager/open-amazon-firewall-manager-resources-api/)
+- [AWS Firewall Manager API](https://apis.io/collections/amazon-firewall-manager/postman-amazon-firewall-manager/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Firewall Manager — jsonschema rules](https://apis.io/rules/amazon-firewall-manager/amazon-firewall-manager-jsonschema-spectral-rules/)
+- [Amazon Firewall Manager API Rules](https://apis.io/rules/amazon-firewall-manager/amazon-firewall-manager-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Firewall Manager Authentication](https://apis.io/security/amazon-firewall-manager/amazon-firewall-manager-authentication/)
+- [Amazon Firewall Manager Domain Security](https://apis.io/security/amazon-firewall-manager/amazon-firewall-manager-domain-security/)
+- [Amazon Firewall Manager Trust Center](https://apis.io/security/amazon-firewall-manager/amazon-firewall-manager-trust-center/)
+- [Amazon Firewall Manager Vulnerability Disclosure](https://apis.io/security/amazon-firewall-manager/amazon-firewall-manager-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Firewall Manager Plans Pricing](https://apis.io/plans/amazon-firewall-manager/amazon-firewall-manager-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Firewall Manager Rate Limits](https://apis.io/rate-limits/amazon-firewall-manager/amazon-firewall-manager-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Firewall Manager Finops](https://apis.io/finops/amazon-firewall-manager/amazon-firewall-manager-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/firewall-manager/)
 - [Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html)
-- [Terms of Service](https://aws.amazon.com/service-terms/)
-- [Privacy Policy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/security/)
-- [GitHub Organization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/wafv2/fmsv2/)
-- [Sign Up](https://portal.aws.amazon.com/billing/signup)
-- [Status Page](https://health.aws.amazon.com/health/status)
-- [YouTube](https://www.youtube.com/user/AmazonWebServices)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/aws-firewall-manager)
-- [Spectral Rules](rules/amazon-firewall-manager-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-firewall-manager-vocabulary.yaml)
-- [JSON-LD](json-ld/amazon-firewall-manager-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Integrations](https://aws.amazon.com/marketplace)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 57.5** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 70.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 58.3 |
+| Access clarity | 60.5 |
+
+**Agent readiness 30.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-firewall-manager/](https://apis.io/providers/amazon-firewall-manager/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Firewall Manager: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-firewall-manager/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
