@@ -1,0 +1,63 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/firewall-manager/pricing/
+sources:
+- https://aws.amazon.com/firewall-manager/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: 'Main pricing tables render prices via dynamic tokens (e.g. {priceOf!...}) so per-region rates are
+  not visible in text; the $100/month per policy figure is taken from the page''s pricing examples. Page
+  notes: "Some regions have per policy price > $100, please use regions drop down to obtain the price".'
+plan_count: 2
+currency: USD
+plans:
+- name: AWS Firewall Manager protection policy (per policy per Region)
+  price_text: AWS Firewall Manager charges $100 per month for the policy
+  price: 100
+  currency: USD
+  period: month
+  unit: per policy per Region
+  overage: AWS Config rules, AWS WAF, Network Firewall, Route 53 Resolver DNS Firewall, and third-party
+    firewall charges billed separately
+- name: AWS Shield Advanced protection policy
+  price_text: Included for Shield Advanced customers. No charge
+  currency: USD
+  period: month
+  unit: per policy per Region
+  included_quota: Included in Shield Advanced subscription; AWS WAF WebACLs or Rules created by Firewall
+    Manager included at no additional charge
+  overage: AWS Config rules charged separately
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units: []
+  plans:
+  - name: AWS Firewall Manager protection policy (per policy per Region)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: AWS Shield Advanced protection policy
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
