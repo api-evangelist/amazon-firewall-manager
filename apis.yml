@@ -1,10 +1,12 @@
 aid: amazon-firewall-manager
+
 name: Amazon Firewall Manager
-description: >-
-  AWS Firewall Manager is a security management service that allows you to centrally configure and manage firewall rules
-  across your accounts and applications in AWS Organizations. It makes it easier to bring new applications and resources
-  into compliance with security policies.
+
+description: AWS Firewall Manager is a security management service that allows you to centrally configure and manage firewall rules across your
+  accounts and applications in AWS Organizations. It makes it easier to bring new applications and resources into compliance with security policies.
+
 type: Index
+
 deliveryModel:
   model: saas
   open_source: false
@@ -17,6 +19,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: paid
   onboarding: unknown
@@ -29,25 +32,211 @@ accessModel:
   - plans
   - authentication
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-firewall-manager.png
+
 tags:
-  - Amazon Web Services
-  - Compliance
-  - Firewall
-  - Network Security
-  - Security
+- Amazon Web Services
+- Compliance
+- Firewall
+- Network Security
+- Security
 tags_raw:
-  - AWS
-  - Compliance
-  - Firewall
-  - Network Security
-  - Security
+- AWS
+- Compliance
+- Firewall
+- Network Security
+- Security
+
 url: https://raw.githubusercontent.com/api-evangelist/amazon-firewall-manager/refs/heads/main/apis.yml
+
 created: '2026-03-16'
+
 modified: '2026-05-19'
+
 specificationVersion: '0.23'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: Spectral
+  url: rules/amazon-firewall-manager-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-firewall-manager-rules.yml
+- type: Spectral
+  url: rules/amazon-firewall-manager-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-firewall-manager-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-firewall-manager-data-model.yml
+- type: CLI
+  url: cli/amazon-firewall-manager-cli.yml
+- type: Compliance
+  url: https://aws.amazon.com/compliance/
+- type: ErrorCatalog
+  url: errors/amazon-firewall-manager-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-firewall-manager-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-firewall-manager-llms.txt
+- type: SecurityTxt
+  url: well-known/amazon-firewall-manager-security.txt
+- type: WellKnown
+  url: well-known/amazon-firewall-manager-well-known.yml
+- type: Hosts
+  url: hosts/amazon-firewall-manager-hosts.yml
+- type: Vendors
+  url: vendors/amazon-firewall-manager-vendors.yml
+- type: SignUp
+  url: https://signin.aws.amazon.com/signup?request_type=builderId
+- type: Security
+  url: https://aws.amazon.com/security/?nc2=h_dsc_aa_sec
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: GettingStarted
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/what-is-rds
+- type: Plans
+  url: plans/amazon-firewall-manager-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amazon-firewall-manager-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-firewall-manager-finops.yml
+- type: CapabilityMap
+  url: capabilities/amazon-firewall-manager-capability-edges.yml
+  name: Amazon Firewall Manager Business Capability Map
+- type: AgenticAccess
+  url: agentic-access/amazon-firewall-manager-agentic-access.yml
+- type: TrustCenter
+  url: security/amazon-firewall-manager-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-firewall-manager-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-firewall-manager-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-firewall-manager-authentication.yml
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-firewall-manager/overview
+- type: Arazzo
+  url: arazzo/amazon-firewall-manager-audit-policy-compliance-workflow.yml
+  name: Amazon Firewall Manager Audit Policy Compliance
+- type: Arazzo
+  url: arazzo/amazon-firewall-manager-create-and-tag-resource-set-workflow.yml
+  name: Amazon Firewall Manager Create And Tag Resource Set
+- type: Arazzo
+  url: arazzo/amazon-firewall-manager-create-and-verify-policy-workflow.yml
+  name: Amazon Firewall Manager Create And Verify Policy
+- type: Arazzo
+  url: arazzo/amazon-firewall-manager-decommission-policy-workflow.yml
+  name: Amazon Firewall Manager Decommission Policy
+- type: Arazzo
+  url: arazzo/amazon-firewall-manager-find-and-tag-policy-workflow.yml
+  name: Amazon Firewall Manager Find And Tag Policy
+- type: Arazzo
+  url: arazzo/amazon-firewall-manager-inventory-and-tag-resource-set-workflow.yml
+  name: Amazon Firewall Manager Inventory And Tag Resource Set
+- type: Arazzo
+  url: arazzo/amazon-firewall-manager-onboard-admin-account-workflow.yml
+  name: Amazon Firewall Manager Onboard Admin Account
+- type: Arazzo
+  url: arazzo/amazon-firewall-manager-resource-set-driven-policy-workflow.yml
+  name: Amazon Firewall Manager Resource Set Driven Policy
+- type: Portal
+  url: https://aws.amazon.com/firewall-manager/
+- type: Website
+  url: https://aws.amazon.com/firewall-manager/
+- type: Documentation
+  url: https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html
+- type: TermsOfService
+  url: https://aws.amazon.com/service-terms/
+- type: PrivacyPolicy
+  url: https://aws.amazon.com/privacy/
+- type: Support
+  url: https://aws.amazon.com/premiumsupport/
+- type: Blog
+  url: https://aws.amazon.com/blogs/security/
+- type: GitHubOrganization
+  url: https://github.com/aws
+- type: Console
+  url: https://console.aws.amazon.com/wafv2/fmsv2/
+- type: Signup
+  url: https://portal.aws.amazon.com/billing/signup
+- type: StatusPage
+  url: https://health.aws.amazon.com/health/status
+- type: YouTube
+  url: https://www.youtube.com/user/AmazonWebServices
+- type: StackOverflow
+  url: https://stackoverflow.com/questions/tagged/aws-firewall-manager
+- type: SpectralRules
+  url: rules/amazon-firewall-manager-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-firewall-manager-vocabulary.yaml
+- type: JSONLD
+  url: json-ld/amazon-firewall-manager-context.jsonld
+- type: Features
+  data:
+  - name: Centralized Policy Management
+    description: Define and enforce WAF, Shield Advanced, Network Firewall, and security group policies from a single pane of glass across all
+      AWS accounts.
+  - name: Automatic Remediation
+    description: Automatically remediate non-compliant resources so that new accounts and resources are always protected.
+  - name: Multi-Account Support
+    description: Manage security policies across hundreds of AWS accounts within an AWS Organization.
+  - name: Compliance Visibility
+    description: View policy compliance status per account and resource with detailed violation reports.
+  - name: Resource Sets
+    description: Group AWS resources by type for targeted policy application and management.
+  - name: Tag-Based Targeting
+    description: Apply policies to resources based on AWS resource tags for fine-grained scope control.
+  - name: Third-Party Firewall Support
+    description: Deploy and manage third-party firewall appliances through AWS Marketplace with Firewall Manager.
+- type: UseCases
+  data:
+  - name: WAF Rule Standardization
+    description: Enforce standard WAF rule sets across all CloudFront distributions and ALBs organization-wide.
+  - name: DDoS Protection Baseline
+    description: Mandate Shield Advanced protection for all internet-facing resources across accounts.
+  - name: Security Group Governance
+    description: Audit and remediate overly permissive security group rules across EC2 and VPC resources.
+  - name: Network Firewall Deployment
+    description: Deploy and manage AWS Network Firewall across VPCs in multiple accounts from a central policy.
+  - name: Compliance Reporting
+    description: Monitor and report on firewall policy compliance for SOC 2, PCI DSS, and regulatory requirements.
+  - name: New Account Onboarding
+    description: Automatically apply security policies to new AWS accounts as they join the organization.
+- type: Integrations
+  data:
+  - name: AWS Organizations
+    description: Manage Firewall Manager policies across all accounts in the organization hierarchy.
+  - name: AWS WAF
+    description: Centrally create and deploy WAF rule groups and web ACLs across accounts.
+  - name: AWS Shield Advanced
+    description: Enable and manage Shield Advanced protection for all DDoS-sensitive resources.
+  - name: AWS Network Firewall
+    description: Deploy centrally managed network firewall policies across VPCs.
+  - name: Amazon Route 53 Resolver
+    description: Manage DNS Firewall rule groups for Route 53 Resolver across accounts.
+  - name: Amazon CloudWatch
+    description: Monitor compliance metrics and set alarms for non-compliant resources.
+  - name: AWS Security Hub
+    description: Send Firewall Manager compliance findings to Security Hub for centralized security posture management.
+  - name: AWS IAM
+    description: Control who can create, modify, and view Firewall Manager policies using IAM permissions.
+- type: Integrations
+  url: https://aws.amazon.com/marketplace
+- type: UsageTerms
+  url: terms/amazon-firewall-manager-terms-of-service.yml
+- type: DataProcessing
+  url: privacy/amazon-firewall-manager-privacy-policy.yml
+- type: Attestations
+  url: compliance/amazon-firewall-manager-compliance.yml
+- type: Eligibility
+  url: eligibility/amazon-firewall-manager-eligibility.yml
+- type: AIPreferences
+  url: ai-preferences/amazon-firewall-manager-ai-preferences.yml
+
 apis:
 - aid: amazon-firewall-manager:amazon-firewall-manager-admin-accounts-api
   name: Amazon Firewall Manager Admin Accounts API
@@ -61,16 +250,6 @@ apis:
     url: openapi/amazon-firewall-manager-admin-accounts-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-policy-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-compliance-violator-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-resource-set-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-security-service-policy-data-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-tag-schema.json
   - type: JSONStructure
     url: json-structure/amazon-firewall-manager-policy-structure.json
   - type: JSONStructure
@@ -99,6 +278,18 @@ apis:
     url: https://aws.amazon.com/firewall-manager/faqs/
   - type: APIReference
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-admin-accounts-for-organization-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-admin-accounts-for-organization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-put-admin-account-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-associate-admin-account-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-admin-account-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-disassociate-admin-account-request-schema.json
 - aid: amazon-firewall-manager:amazon-firewall-manager-compliance-api
   name: Amazon Firewall Manager Compliance API
   description: Compliance status and violations
@@ -112,15 +303,7 @@ apis:
   - type: Documentation
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
   - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-policy-schema.json
-  - type: JSONSchema
     url: json-schema/amazon-firewall-manager-compliance-violator-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-resource-set-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-security-service-policy-data-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-tag-schema.json
   - type: JSONStructure
     url: json-structure/amazon-firewall-manager-policy-structure.json
   - type: JSONStructure
@@ -161,16 +344,6 @@ apis:
     url: openapi/amazon-firewall-manager-member-accounts-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-policy-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-compliance-violator-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-resource-set-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-security-service-policy-data-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-tag-schema.json
   - type: JSONStructure
     url: json-structure/amazon-firewall-manager-policy-structure.json
   - type: JSONStructure
@@ -199,6 +372,10 @@ apis:
     url: https://aws.amazon.com/firewall-manager/faqs/
   - type: APIReference
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-member-accounts-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-member-accounts-response-schema.json
 - aid: amazon-firewall-manager:amazon-firewall-manager-policies-api
   name: Amazon Firewall Manager Policies API
   description: Firewall Manager security policies
@@ -213,10 +390,6 @@ apis:
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
   - type: JSONSchema
     url: json-schema/amazon-firewall-manager-policy-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-compliance-violator-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-resource-set-schema.json
   - type: JSONSchema
     url: json-schema/amazon-firewall-manager-security-service-policy-data-schema.json
   - type: JSONSchema
@@ -262,13 +435,7 @@ apis:
   - type: Documentation
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
   - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-policy-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-compliance-violator-schema.json
-  - type: JSONSchema
     url: json-schema/amazon-firewall-manager-resource-set-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-firewall-manager-security-service-policy-data-schema.json
   - type: JSONSchema
     url: json-schema/amazon-firewall-manager-tag-schema.json
   - type: JSONStructure
@@ -301,9 +468,7 @@ apis:
     url: https://docs.aws.amazon.com/fms/latest/APIReference/Welcome.html
 - aid: amazon-firewall-manager:amazon-firewall-manager-apps-list-api
   name: Amazon Firewall Manager Firewall Manager Apps List API
-  description: >-
-    The Firewall Manager Apps List API from Amazon Firewall Manager — 4 operation(s) for firewall manager
-    apps list.
+  description: The Firewall Manager Apps List API from Amazon Firewall Manager — 4 operation(s) for firewall manager apps list.
   humanURL: https://aws.amazon.com/firewall-manager/
   baseURL: https://fms.amazonaws.com
   tags:
@@ -311,11 +476,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-firewall-manager-apps-list-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-apps-lists-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-apps-lists-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-apps-list-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-put-apps-list-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-delete-apps-list-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-apps-list-response-schema.json
 - aid: amazon-firewall-manager:amazon-firewall-manager-notification-channel-api
   name: Amazon Firewall Manager Firewall Manager Notification Channel API
-  description: >-
-    The Firewall Manager Notification Channel API from Amazon Firewall Manager — 3 operation(s) for firewall
-    manager notification channel.
+  description: The Firewall Manager Notification Channel API from Amazon Firewall Manager — 3 operation(s) for firewall manager notification channel.
   humanURL: https://aws.amazon.com/firewall-manager/
   baseURL: https://fms.amazonaws.com
   tags:
@@ -323,11 +498,17 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-firewall-manager-notification-channel-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-put-notification-channel-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-notification-channel-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-delete-notification-channel-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-notification-channel-request-schema.json
 - aid: amazon-firewall-manager:amazon-firewall-manager-operations-api
   name: Amazon Firewall Manager Firewall Manager Operations API
-  description: >-
-    The Firewall Manager Operations API from Amazon Firewall Manager — 13 operation(s) for firewall manager
-    operations.
+  description: The Firewall Manager Operations API from Amazon Firewall Manager — 13 operation(s) for firewall manager operations.
   humanURL: https://aws.amazon.com/firewall-manager/
   baseURL: https://fms.amazonaws.com
   tags:
@@ -335,11 +516,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-firewall-manager-operations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-protection-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-third-party-firewall-association-status-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-protection-status-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-third-party-firewall-firewall-policies-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-discovered-resources-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-compliance-status-request-schema.json
 - aid: amazon-firewall-manager:amazon-firewall-manager-protocols-list-api
   name: Amazon Firewall Manager Firewall Manager Protocols List API
-  description: >-
-    The Firewall Manager Protocols List API from Amazon Firewall Manager — 4 operation(s) for firewall
-    manager protocols list.
+  description: The Firewall Manager Protocols List API from Amazon Firewall Manager — 4 operation(s) for firewall manager protocols list.
   humanURL: https://aws.amazon.com/firewall-manager/
   baseURL: https://fms.amazonaws.com
   tags:
@@ -347,148 +538,35 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-firewall-manager-protocols-list-api-openapi.yml
-common:
-  - type: Plans
-    url: plans/amazon-firewall-manager-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/amazon-firewall-manager-rate-limits.yml
-  - type: FinOps
-    url: finops/amazon-firewall-manager-finops.yml
-  - type: CapabilityMap
-    url: capabilities/amazon-firewall-manager-capability-edges.yml
-    name: Amazon Firewall Manager Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/amazon-firewall-manager-agentic-access.yml
-  - type: TrustCenter
-    url: security/amazon-firewall-manager-trust-center.yml
-  - type: VulnerabilityDisclosure
-    url: security/amazon-firewall-manager-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/amazon-firewall-manager-domain-security.yml
-  - type: Authentication
-    url: authentication/amazon-firewall-manager-authentication.yml
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/amazon-firewall-manager/overview
-  - type: Arazzo
-    url: arazzo/amazon-firewall-manager-audit-policy-compliance-workflow.yml
-    name: Amazon Firewall Manager Audit Policy Compliance
-  - type: Arazzo
-    url: arazzo/amazon-firewall-manager-create-and-tag-resource-set-workflow.yml
-    name: Amazon Firewall Manager Create And Tag Resource Set
-  - type: Arazzo
-    url: arazzo/amazon-firewall-manager-create-and-verify-policy-workflow.yml
-    name: Amazon Firewall Manager Create And Verify Policy
-  - type: Arazzo
-    url: arazzo/amazon-firewall-manager-decommission-policy-workflow.yml
-    name: Amazon Firewall Manager Decommission Policy
-  - type: Arazzo
-    url: arazzo/amazon-firewall-manager-find-and-tag-policy-workflow.yml
-    name: Amazon Firewall Manager Find And Tag Policy
-  - type: Arazzo
-    url: arazzo/amazon-firewall-manager-inventory-and-tag-resource-set-workflow.yml
-    name: Amazon Firewall Manager Inventory And Tag Resource Set
-  - type: Arazzo
-    url: arazzo/amazon-firewall-manager-onboard-admin-account-workflow.yml
-    name: Amazon Firewall Manager Onboard Admin Account
-  - type: Arazzo
-    url: arazzo/amazon-firewall-manager-resource-set-driven-policy-workflow.yml
-    name: Amazon Firewall Manager Resource Set Driven Policy
-  - type: Portal
-    url: https://aws.amazon.com/firewall-manager/
-  - type: Website
-    url: https://aws.amazon.com/firewall-manager/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html
-  - type: TermsOfService
-    url: https://aws.amazon.com/service-terms/
-  - type: PrivacyPolicy
-    url: https://aws.amazon.com/privacy/
-  - type: Support
-    url: https://aws.amazon.com/premiumsupport/
-  - type: Blog
-    url: https://aws.amazon.com/blogs/security/
-  - type: GitHubOrganization
-    url: https://github.com/aws
-  - type: Console
-    url: https://console.aws.amazon.com/wafv2/fmsv2/
-  - type: Signup
-    url: https://portal.aws.amazon.com/billing/signup
-  - type: StatusPage
-    url: https://health.aws.amazon.com/health/status
-  - type: YouTube
-    url: https://www.youtube.com/user/AmazonWebServices
-  - type: StackOverflow
-    url: https://stackoverflow.com/questions/tagged/aws-firewall-manager
-  - type: SpectralRules
-    url: rules/amazon-firewall-manager-spectral-rules.yml
-  - type: Vocabulary
-    url: vocabulary/amazon-firewall-manager-vocabulary.yaml
-  - type: JSONLD
-    url: json-ld/amazon-firewall-manager-context.jsonld
-  - type: Features
-    data:
-      - name: Centralized Policy Management
-        description: >-
-          Define and enforce WAF, Shield Advanced, Network Firewall, and security group policies from a single pane of
-          glass across all AWS accounts.
-      - name: Automatic Remediation
-        description: Automatically remediate non-compliant resources so that new accounts and resources are always protected.
-      - name: Multi-Account Support
-        description: Manage security policies across hundreds of AWS accounts within an AWS Organization.
-      - name: Compliance Visibility
-        description: View policy compliance status per account and resource with detailed violation reports.
-      - name: Resource Sets
-        description: Group AWS resources by type for targeted policy application and management.
-      - name: Tag-Based Targeting
-        description: Apply policies to resources based on AWS resource tags for fine-grained scope control.
-      - name: Third-Party Firewall Support
-        description: Deploy and manage third-party firewall appliances through AWS Marketplace with Firewall Manager.
-  - type: UseCases
-    data:
-      - name: WAF Rule Standardization
-        description: Enforce standard WAF rule sets across all CloudFront distributions and ALBs organization-wide.
-      - name: DDoS Protection Baseline
-        description: Mandate Shield Advanced protection for all internet-facing resources across accounts.
-      - name: Security Group Governance
-        description: Audit and remediate overly permissive security group rules across EC2 and VPC resources.
-      - name: Network Firewall Deployment
-        description: Deploy and manage AWS Network Firewall across VPCs in multiple accounts from a central policy.
-      - name: Compliance Reporting
-        description: Monitor and report on firewall policy compliance for SOC 2, PCI DSS, and regulatory requirements.
-      - name: New Account Onboarding
-        description: Automatically apply security policies to new AWS accounts as they join the organization.
-  - type: Integrations
-    data:
-      - name: AWS Organizations
-        description: Manage Firewall Manager policies across all accounts in the organization hierarchy.
-      - name: AWS WAF
-        description: Centrally create and deploy WAF rule groups and web ACLs across accounts.
-      - name: AWS Shield Advanced
-        description: Enable and manage Shield Advanced protection for all DDoS-sensitive resources.
-      - name: AWS Network Firewall
-        description: Deploy centrally managed network firewall policies across VPCs.
-      - name: Amazon Route 53 Resolver
-        description: Manage DNS Firewall rule groups for Route 53 Resolver across accounts.
-      - name: Amazon CloudWatch
-        description: Monitor compliance metrics and set alarms for non-compliant resources.
-      - name: AWS Security Hub
-        description: Send Firewall Manager compliance findings to Security Hub for centralized security posture management.
-      - name: AWS IAM
-        description: Control who can create, modify, and view Firewall Manager policies using IAM permissions.
-  - type: Integrations
-    url: https://aws.amazon.com/marketplace
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-protocols-lists-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-list-protocols-lists-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-protocols-list-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-put-protocols-list-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-delete-protocols-list-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-firewall-manager-get-protocols-list-response-schema.json
+
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: Why AWS Marketplace?
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
+
 x-parent: amazon-web-services
+
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 2
+  pass: local-v6
