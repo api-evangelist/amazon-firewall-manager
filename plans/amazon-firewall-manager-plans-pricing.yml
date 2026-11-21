@@ -39,7 +39,7 @@ plans:
     Manager included at no additional charge
   overage: AWS Config rules charged separately
 x-canonical:
-  generated: '2026-11-13'
+  generated: '2026-11-20'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
